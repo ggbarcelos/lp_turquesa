@@ -435,6 +435,35 @@
     document.head.appendChild(style);
   }
 
+  /* ─── 12. FLOATING CTA VISIBILITY ───────────────── */
+
+  function initFabCta() {
+    const fab     = document.getElementById('fabCta');
+    const contato = document.getElementById('contato');
+    if (!fab || !contato) return;
+
+    const SHOW_AFTER_PX = 300;
+
+    // Scroll to #contato via JS (works in file:// and http://)
+    fab.addEventListener('click', function (e) {
+      e.preventDefault();
+      contato.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Show/hide based on scroll position vs contato section bounds
+    function updateFab() {
+      const scrollY      = window.scrollY;
+      const rect         = contato.getBoundingClientRect();
+      const inView       = rect.top < window.innerHeight && rect.bottom > 0;
+      const hide         = scrollY < SHOW_AFTER_PX || inView;
+
+      fab.classList.toggle('fab-cta--hidden', hide);
+    }
+
+    window.addEventListener('scroll', updateFab, { passive: true });
+    updateFab();
+  }
+
   /* ─── INIT ────────────────────────────────────────── */
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -446,6 +475,7 @@
     initCounters();
     initPhoneMask();
     initForm();
+    initFabCta();
   });
 
 })();
