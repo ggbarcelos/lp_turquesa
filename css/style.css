@@ -1196,7 +1196,7 @@ button {
 }
 
 .financeiros__card--featured .financeiros__value {
-  color: var(--turquesa-light);
+  color: var(--white);
 }
 
 .financeiros__value sup {
