@@ -1536,6 +1536,59 @@ button {
   box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.10);
 }
 
+.form__error {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #DC2626;
+  margin-top: 5px;
+  animation: fadeInUp 0.2s var(--ease-out);
+}
+
+.form__error.visible {
+  display: flex;
+}
+
+.form__error::before {
+  content: '!';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  background: #DC2626;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.65rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* Network error banner */
+.form__network-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #DC2626;
+  margin-bottom: 16px;
+  animation: fadeInUp 0.3s var(--ease-out);
+}
+
+.form__network-error svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke: #DC2626;
+}
+
 .form__group input::placeholder {
   color: var(--gray-400);
 }

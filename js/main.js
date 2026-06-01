@@ -259,58 +259,136 @@
     });
   }
 
-  /* ─── 9. LEAD FORM ───────────────────────────────── */
+  /* ─── 9. UTM CAPTURE ────────────────────────────── */
+
+  function getUtms() {
+    const p = new URLSearchParams(window.location.search);
+    return {
+      utm_source:   p.get('utm_source')   || '',
+      utm_medium:   p.get('utm_medium')   || '',
+      utm_campaign: p.get('utm_campaign') || '',
+      utm_term:     p.get('utm_term')     || '',
+      utm_content:  p.get('utm_content')  || '',
+      utm_id:       p.get('utm_id')       || '',
+      fbclid:       p.get('fbclid')       || '',
+    };
+  }
+
+  /* ─── 10. LEAD FORM ──────────────────────────────── */
+
+  const WEBHOOK_URL = 'https://chartresbusiness.app.n8n.cloud/webhook/lead_form';
+
+  // Validation rules per field
+  const RULES = {
+    nome:     v => v.trim().length >= 3             || 'Por favor, informe seu nome completo.',
+    email:    v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Informe um e-mail válido.',
+    telefone: v => v.replace(/\D/g,'').length >= 10 || 'Informe um telefone com DDD.',
+    cidade:   v => v.trim().length >= 2             || 'Informe a cidade de interesse.',
+  };
+
+  function showFieldError(fieldId, message) {
+    const input = document.getElementById(fieldId);
+    const errEl = document.getElementById(`erro-${fieldId}`);
+    if (!input || !errEl) return;
+    input.classList.add('error');
+    errEl.textContent = message;
+    errEl.classList.add('visible');
+  }
+
+  function clearFieldError(fieldId) {
+    const input = document.getElementById(fieldId);
+    const errEl = document.getElementById(`erro-${fieldId}`);
+    if (!input || !errEl) return;
+    input.classList.remove('error');
+    errEl.classList.remove('visible');
+  }
 
   function initForm() {
-    const form = document.getElementById('leadForm');
-    const successBox = document.getElementById('formSuccess');
+    const form        = document.getElementById('leadForm');
+    const successBox  = document.getElementById('formSuccess');
+    const networkErr  = document.getElementById('formNetworkError');
     if (!form || !successBox) return;
 
-    form.addEventListener('submit', e => {
+    // Live-clear errors on input
+    Object.keys(RULES).forEach(id => {
+      const input = document.getElementById(id);
+      if (input) input.addEventListener('input', () => clearFieldError(id));
+    });
+
+    form.addEventListener('submit', async e => {
       e.preventDefault();
 
+      // ── Validate all fields ──
       let isValid = true;
-      const fields = form.querySelectorAll('input[required]');
-
-      fields.forEach(field => {
-        field.classList.remove('error');
-        const val = field.value.trim();
-
-        if (!val) {
-          field.classList.add('error');
+      Object.entries(RULES).forEach(([id, rule]) => {
+        const input = document.getElementById(id);
+        if (!input) return;
+        const result = rule(input.value);
+        if (result !== true) {
+          showFieldError(id, result);
           isValid = false;
-          return;
-        }
-
-        if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-          field.classList.add('error');
-          isValid = false;
+        } else {
+          clearFieldError(id);
         }
       });
 
       if (!isValid) {
-        const firstError = form.querySelector('.error');
+        const firstError = form.querySelector('input.error');
         if (firstError) firstError.focus();
         return;
       }
 
-      // Simulate async submission
+      // ── Loading state ──
       const btn = form.querySelector('[type="submit"]');
+      const originalHTML = btn.innerHTML;
       btn.disabled = true;
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;animation:spin 0.8s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Enviando...';
+      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        style="width:18px;height:18px;animation:spin 0.8s linear infinite">
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+      </svg> Enviando...`;
 
-      setTimeout(() => {
+      if (networkErr) networkErr.style.display = 'none';
+
+      // ── Build payload ──
+      const utms = getUtms();
+      const payload = {
+        nome:         document.getElementById('nome').value.trim(),
+        email:        document.getElementById('email').value.trim(),
+        telefone:     document.getElementById('telefone').value.trim(),
+        cidade:       document.getElementById('cidade').value.trim(),
+        utm_source:   utms.utm_source,
+        utm_medium:   utms.utm_medium,
+        utm_campaign: utms.utm_campaign,
+        utm_term:     utms.utm_term,
+        utm_content:  utms.utm_content,
+        utm_id:       utms.utm_id,
+        fbclid:       utms.fbclid,
+        timestamp:    new Date().toISOString(),
+        source:       window.location.href,
+      };
+
+      // ── Send to webhook ──
+      try {
+        const res = await fetch(WEBHOOK_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload),
+        });
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        // Success
         form.style.display = 'none';
         successBox.style.display = 'block';
-
-        // Scroll form into view
         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 1400);
-    });
 
-    // Clear error on input
-    form.querySelectorAll('input').forEach(input => {
-      input.addEventListener('input', () => input.classList.remove('error'));
+      } catch (err) {
+        console.error('Webhook error:', err);
+        btn.disabled = false;
+        btn.innerHTML = originalHTML;
+        if (networkErr) networkErr.style.display = 'flex';
+        networkErr.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     });
   }
 
