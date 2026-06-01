@@ -1076,39 +1076,39 @@ button {
 /* ===== INDICADORES FINANCEIROS ===== */
 .financeiros {
   padding: var(--section-py) 0;
-  background: var(--gradient-dark);
+  background: var(--white);
   position: relative;
   overflow: hidden;
 }
 
+/* Faixa decorativa turquesa no topo da seção */
 .financeiros::before {
   content: '';
   position: absolute;
-  width: 500px;
-  height: 500px;
-  background: rgba(0,184,212,0.06);
-  border-radius: 50%;
-  top: -150px;
-  right: -100px;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--gradient-card);
 }
 
+/* Blob de fundo suave */
 .financeiros::after {
   content: '';
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: rgba(255,255,255,0.03);
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, var(--turquesa-pale) 0%, transparent 70%);
   border-radius: 50%;
-  bottom: -100px;
-  left: -80px;
+  bottom: -160px;
+  right: -140px;
   pointer-events: none;
 }
 
 .financeiros__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 24px;
   margin-bottom: 32px;
   position: relative;
   z-index: 1;
@@ -1119,87 +1119,136 @@ button {
 }
 
 .financeiros__card {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: var(--radius-md);
-  padding: clamp(36px, 5vw, 52px) 32px;
+  background: var(--gray-50);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: clamp(40px, 5vw, 60px) 32px clamp(36px, 4vw, 52px);
   text-align: center;
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
 }
 
+.financeiros__card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-card);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease-out);
+}
+
 .financeiros__card--featured {
-  background: rgba(0, 184, 212, 0.15);
-  border-color: rgba(0, 184, 212, 0.35);
+  background: var(--turquesa-pale);
+  border-color: var(--turquesa-light);
+}
+
+.financeiros__card--featured::before {
+  transform: scaleX(1);
 }
 
 .financeiros__card:hover {
-  background: rgba(255,255,255,0.13);
-  transform: translateY(-8px);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+  background: var(--white);
+  border-color: var(--turquesa);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.financeiros__card:hover::before {
+  transform: scaleX(1);
 }
 
 .financeiros__top-icon {
-  width: 44px;
-  height: 44px;
-  background: rgba(0,184,212,0.18);
+  width: 52px;
+  height: 52px;
+  background: var(--turquesa-pale);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
+  margin: 0 auto 24px;
+  transition: background var(--transition);
+}
+
+.financeiros__card:hover .financeiros__top-icon {
+  background: var(--turquesa);
 }
 
 .financeiros__top-icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: var(--turquesa-light);
+  width: 24px;
+  height: 24px;
+  stroke: var(--turquesa-dark);
+  transition: stroke var(--transition);
+}
+
+.financeiros__card:hover .financeiros__top-icon svg {
+  stroke: var(--white);
 }
 
 .financeiros__value {
   display: block;
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-size: clamp(3rem, 6.5vw, 4.8rem);
   font-weight: 900;
-  color: var(--turquesa-light);
+  color: var(--turquesa-deep);
   line-height: 1;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.financeiros__card--featured .financeiros__value {
+  background: var(--gradient-card);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .financeiros__value sup {
-  font-size: 0.52em;
+  font-size: 0.48em;
   vertical-align: super;
+  letter-spacing: 0;
 }
 
 .financeiros__unit {
-  font-size: 0.45em;
+  font-size: 0.38em;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   vertical-align: middle;
+  text-transform: uppercase;
 }
 
 .financeiros__label {
   display: block;
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.65);
-  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
-  line-height: 1.4;
+  letter-spacing: 0.09em;
+  line-height: 1.5;
 }
 
 .financeiros__bar {
-  width: 40px;
+  width: 44px;
   height: 3px;
-  background: rgba(0,184,212,0.5);
+  background: var(--gradient-card);
   border-radius: 2px;
-  margin: 18px auto 0;
+  margin: 20px auto 0;
+  opacity: 0.5;
+  transition: opacity var(--transition), width var(--transition);
+}
+
+.financeiros__card:hover .financeiros__bar {
+  opacity: 1;
+  width: 64px;
 }
 
 .financeiros__disclaimer {
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.35);
+  color: var(--gray-400);
   text-align: center;
   position: relative;
   z-index: 1;
