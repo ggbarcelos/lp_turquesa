@@ -467,15 +467,23 @@
         ['fbclid', utms.fbclid],
       ].filter(([, v]) => v);
 
-      let descricao;
+      const lines = [
+        `Nome: ${nome}`,
+        `E-mail: ${email}`,
+        `Telefone: ${phone}`,
+        `Cidade: ${cidade}`,
+        `Investimento: ${investimento}`,
+      ];
+
       if (utmPairs.length) {
-        const parts = ['Lead do formulário Turquesa', `URL: ${window.location.href}`, '', 'UTMs:'];
-        utmPairs.forEach(([k, v]) => parts.push(`  ${k}: ${v}`));
-        descricao = parts.join('\n');
+        lines.push('', '--- Origem do tráfego ---');
+        const labelMap = { utm_source: 'Fonte', utm_medium: 'Mídia', utm_campaign: 'Campanha', utm_term: 'Termo', utm_content: 'Conteúdo', utm_id: 'ID', fbclid: 'FB Click ID' };
+        utmPairs.forEach(([k, v]) => lines.push(`${labelMap[k] || k}: ${v}`));
       } else {
-        descricao = 'Acesso direto ao site';
+        lines.push('', 'Acesso direto ao site');
       }
-      descricao += `\n\nInvestimento: ${investimento}`;
+
+      const descricao = lines.join('\n');
 
       const payload = {
         sendEmailModeloIdToLead: 1,
