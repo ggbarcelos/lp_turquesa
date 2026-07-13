@@ -534,13 +534,26 @@
             </div>
             <div class="form__group">
               <label for="telefone">Telefone / WhatsApp <span aria-label="obrigatório">*</span></label>
-              <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel" maxlength="15">
+              <div class="input-with-prefix">
+                <span class="input-prefix">+55</span>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel" maxlength="15">
+              </div>
               <span class="form__error" id="erro-telefone" role="alert">Informe um telefone com DDD.</span>
             </div>
             <div class="form__group">
               <label for="cidade">Cidade de interesse <span aria-label="obrigatório">*</span></label>
               <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo - SP" required autocomplete="address-level2">
               <span class="form__error" id="erro-cidade" role="alert">Informe a cidade de interesse.</span>
+            </div>
+            <div class="form__group">
+              <label for="investimento">Valor disponível para investimento <span aria-label="obrigatório">*</span></label>
+              <select id="investimento" name="investimento" required>
+                <option value="">Selecione uma faixa</option>
+                <option value="150 a 200 mil">150 a 200 mil</option>
+                <option value="200 a 300 mil">200 a 300 mil</option>
+                <option value="300 a 400 mil">300 a 400 mil</option>
+              </select>
+              <span class="form__error" id="erro-investimento" role="alert">Selecione a faixa de investimento.</span>
             </div>
             <button type="submit" class="btn btn--form">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -597,6 +610,10 @@
     </svg>
   </a>
 
-  <script src="js/main.js"></script>
+  <!-- EmailJS SDK -->
+  <script src="js/email.min.js"></script>
+  <script>emailjs.init({ publicKey: 'xAtMa5JUwZUvcGnXw' });</script>
+
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>

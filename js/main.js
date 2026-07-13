@@ -240,18 +240,23 @@
 
   /* ─── 8. PHONE MASK ──────────────────────────────── */
 
+  function normalizePhone(raw) {
+    return raw.replace(/\D/g, '');
+  }
+
   function initPhoneMask() {
     const input = document.getElementById('telefone');
     if (!input) return;
 
     input.addEventListener('input', e => {
-      let v = e.target.value.replace(/\D/g, '').slice(0, 11);
-      if (v.length <= 10) {
-        v = v.replace(/^(\d{2})(\d{4})(\d{0,4})/, (_, a, b, c) =>
+      const digits = e.target.value.replace(/\D/g, '').slice(0, 11);
+      let v;
+      if (digits.length <= 10) {
+        v = digits.replace(/^(\d{2})(\d{4})(\d{0,4})/, (_, a, b, c) =>
           c ? `(${a}) ${b}-${c}` : b ? `(${a}) ${b}` : a ? `(${a}` : ''
         );
       } else {
-        v = v.replace(/^(\d{2})(\d{5})(\d{0,4})/, (_, a, b, c) =>
+        v = digits.replace(/^(\d{2})(\d{5})(\d{0,4})/, (_, a, b, c) =>
           c ? `(${a}) ${b}-${c}` : `(${a}) ${b}`
         );
       }
@@ -274,16 +279,78 @@
     };
   }
 
-  /* ─── 10. LEAD FORM ──────────────────────────────── */
+  /* ─── 10. CONFIRMATION MODAL ──────────────────────── */
 
-  const WEBHOOK_URL = 'https://chartresbusiness.app.n8n.cloud/webhook/lead_form';
+  function showConfirmModal(data) {
+    return new Promise(resolve => {
+      const overlay = document.createElement('div');
+      overlay.className = 'modal-overlay';
+      overlay.innerHTML = `
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+          <h3 id="modal-title">Confirme seus dados</h3>
+          <p>Verifique se as informações estão corretas antes de enviar.</p>
+          <div class="modal-data">
+            ${data.map(item => `
+              <div class="modal-row">
+                <span class="modal-row__label">${item.label}</span>
+                <span class="modal-row__value">${item.value}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="modal-actions">
+            <button class="btn btn--outline modal-cancel" type="button">Cancelar</button>
+            <button class="btn btn--form modal-confirm" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Enviar
+            </button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+
+      overlay.querySelector('.modal-confirm').addEventListener('click', () => {
+        overlay.remove();
+        document.body.style.overflow = '';
+        resolve(true);
+      });
+
+      overlay.querySelector('.modal-cancel').addEventListener('click', () => {
+        overlay.remove();
+        document.body.style.overflow = '';
+        resolve(false);
+      });
+
+      overlay.addEventListener('click', e => {
+        if (e.target === overlay) {
+          overlay.remove();
+          document.body.style.overflow = '';
+          resolve(false);
+        }
+      });
+
+      document.addEventListener('keydown', function handler(e) {
+        if (e.key === 'Escape') {
+          overlay.remove();
+          document.body.style.overflow = '';
+          document.removeEventListener('keydown', handler);
+          resolve(false);
+        }
+      });
+    });
+  }
+
+  /* ─── 11. LEAD FORM (SULTS CRM) ──────────────────── */
+
+  const WEBHOOK_URL = 'https://sults-api.giovanni-aguiar.workers.dev';
 
   // Validation rules per field
   const RULES = {
     nome:     v => v.trim().length >= 3             || 'Por favor, informe seu nome completo.',
     email:    v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Informe um e-mail válido.',
-    telefone: v => v.replace(/\D/g,'').length >= 10 || 'Informe um telefone com DDD.',
-    cidade:   v => v.trim().length >= 2             || 'Informe a cidade de interesse.',
+    telefone: v => normalizePhone(v).length >= 10 || 'Informe um telefone com DDD.',
+    cidade:       v => v.trim().length >= 2             || 'Informe a cidade de interesse.',
+    investimento: v => v !== ''                          || 'Selecione a faixa de investimento.',
   };
 
   function showFieldError(fieldId, message) {
@@ -312,7 +379,11 @@
     // Live-clear errors on input
     Object.keys(RULES).forEach(id => {
       const input = document.getElementById(id);
-      if (input) input.addEventListener('input', () => clearFieldError(id));
+      if (!input) return;
+      input.addEventListener('input', () => clearFieldError(id));
+      if (input.tagName === 'SELECT') {
+        input.addEventListener('change', () => clearFieldError(id));
+      }
     });
 
     form.addEventListener('submit', async e => {
@@ -349,23 +420,91 @@
 
       if (networkErr) networkErr.style.display = 'none';
 
+      // ── EmailJS (backup independente) ──
+      console.log('📧 EmailJS disponível?', typeof emailjs !== 'undefined');
+      if (typeof emailjs !== 'undefined') {
+        try {
+          console.log('📧 Enviando email via EmailJS...');
+          // Injeta UTMs como hidden inputs pro EmailJS
+          const utms = getUtms();
+          const utmFields = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','fbclid'];
+          utmFields.forEach(param => {
+            if (!form.querySelector(`input[name="${param}"]`)) {
+              const hidden = document.createElement('input');
+              hidden.type = 'hidden';
+              hidden.name = param;
+              hidden.value = utms[param] || '';
+              form.appendChild(hidden);
+            }
+          });
+          console.log('📧 Chamando sendForm com:', { service: 'service_1u29mnn', template: 'template_po7jecd' });
+          const response = await emailjs.sendForm('service_1u29mnn', 'template_po7jecd', form);
+          console.log('✅ EmailJS sucesso:', response);
+        } catch (err) {
+          console.error('❌ EmailJS error completo:', err);
+          console.error('❌ EmailJS status:', err?.status);
+          console.error('❌ EmailJS text:', err?.text);
+        }
+      } else {
+        console.warn('⚠️ EmailJS não está carregado');
+      }
+
       // ── Build payload ──
+      const nome         = document.getElementById('nome').value.trim();
+      const email        = document.getElementById('email').value.trim();
+      const phone        = `+55 ${document.getElementById('telefone').value.trim()}`;
+      const cidade       = document.getElementById('cidade').value.trim();
+      const investimento = document.getElementById('investimento').value;
+
       const utms = getUtms();
+      const utmPairs = [
+        ['utm_source', utms.utm_source],
+        ['utm_medium', utms.utm_medium],
+        ['utm_campaign', utms.utm_campaign],
+        ['utm_term', utms.utm_term],
+        ['utm_content', utms.utm_content],
+        ['utm_id', utms.utm_id],
+        ['fbclid', utms.fbclid],
+      ].filter(([, v]) => v);
+
+      let descricao;
+      if (utmPairs.length) {
+        const parts = ['Lead do formulário Turquesa', `URL: ${window.location.href}`, '', 'UTMs:'];
+        utmPairs.forEach(([k, v]) => parts.push(`  ${k}: ${v}`));
+        descricao = parts.join('\n');
+      } else {
+        descricao = 'Acesso direto ao site';
+      }
+      descricao += `\n\nInvestimento: ${investimento}`;
+
       const payload = {
-        nome:         document.getElementById('nome').value.trim(),
-        email:        document.getElementById('email').value.trim(),
-        telefone:     document.getElementById('telefone').value.trim(),
-        cidade:       document.getElementById('cidade').value.trim(),
-        utm_source:   utms.utm_source,
-        utm_medium:   utms.utm_medium,
-        utm_campaign: utms.utm_campaign,
-        utm_term:     utms.utm_term,
-        utm_content:  utms.utm_content,
-        utm_id:       utms.utm_id,
-        fbclid:       utms.fbclid,
-        timestamp:    new Date().toISOString(),
-        source:       window.location.href,
+        sendEmailModeloIdToLead: 1,
+        sendNotificationToResponsavel: true,
+        negocio: {
+          titulo: `Novo Negócio - ${nome}`,
+          responsavelId: 161,
+          etapaId: 32,
+          situacaoId: 1,
+          origemId: 17,
+          campanhaId: 4,
+          descricao,
+        },
+        pessoa: { nome, email, phone },
       };
+
+      // ── Confirmation modal ──
+      const confirmed = await showConfirmModal([
+        { label: 'Nome', value: nome },
+        { label: 'E-mail', value: email },
+        { label: 'Telefone', value: `+55 ${document.getElementById('telefone').value.trim()}` },
+        { label: 'Cidade', value: cidade },
+        { label: 'Investimento', value: investimento },
+      ]);
+      if (!confirmed) {
+        btn.disabled = false;
+        btn.innerHTML = originalHTML;
+        return;
+      }
 
       // ── Send to webhook ──
       try {
@@ -375,7 +514,9 @@
           body:    JSON.stringify(payload),
         });
 
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        let body = '';
+        try { body = await res.text(); } catch (_) {}
+        if (!res.ok) throw new Error(`HTTP ${res.status} — "${body}"`);
 
         // Success
         form.style.display = 'none';
@@ -392,7 +533,7 @@
     });
   }
 
-  /* ─── 10. LIGHTBOX ───────────────────────────────── */
+  /* ─── 12. LIGHTBOX ───────────────────────────────── */
 
   function openLightbox(src) {
     const lb = document.createElement('div');
@@ -427,7 +568,7 @@
     });
   }
 
-  /* ─── 11. SPINNER KEYFRAME (injected) ────────────── */
+  /* ─── 13. SPINNER KEYFRAME (injected) ────────────── */
 
   function injectSpinnerKeyframe() {
     const style = document.createElement('style');
@@ -435,7 +576,7 @@
     document.head.appendChild(style);
   }
 
-  /* ─── 12. FLOATING CTA VISIBILITY ───────────────── */
+  /* ─── 14. FLOATING CTA VISIBILITY ───────────────── */
 
   function initFabCta() {
     const fab     = document.getElementById('fabCta');
