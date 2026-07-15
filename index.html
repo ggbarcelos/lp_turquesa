@@ -521,28 +521,28 @@
           </ul>
         </div>
         <div class="contato__form-wrap" data-animate>
-          <form class="form" id="leadForm" novalidate aria-label="Formulário de interesse em franquia">
+          <form class="form" id="leadForm" novalidate autocomplete="off" aria-label="Formulário de interesse em franquia">
             <div class="form__group">
               <label for="nome">Nome completo <span aria-label="obrigatório">*</span></label>
-              <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+              <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="off">
               <span class="form__error" id="erro-nome" role="alert">Por favor, informe seu nome completo.</span>
             </div>
             <div class="form__group">
               <label for="email">E-mail <span aria-label="obrigatório">*</span></label>
-              <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+              <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="off">
               <span class="form__error" id="erro-email" role="alert">Informe um e-mail válido.</span>
             </div>
             <div class="form__group">
               <label for="telefone">Telefone / WhatsApp <span aria-label="obrigatório">*</span></label>
               <div class="input-with-prefix">
                 <span class="input-prefix">+55</span>
-                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel" maxlength="15">
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="off" maxlength="15">
               </div>
               <span class="form__error" id="erro-telefone" role="alert">Informe um telefone com DDD.</span>
             </div>
             <div class="form__group">
               <label for="cidade">Cidade de interesse <span aria-label="obrigatório">*</span></label>
-              <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo - SP" required autocomplete="address-level2">
+              <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo - SP" required autocomplete="off">
               <span class="form__error" id="erro-cidade" role="alert">Informe a cidade de interesse.</span>
             </div>
             <div class="form__group">

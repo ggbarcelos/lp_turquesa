@@ -279,68 +279,7 @@
     };
   }
 
-  /* ─── 10. CONFIRMATION MODAL ──────────────────────── */
-
-  function showConfirmModal(data) {
-    return new Promise(resolve => {
-      const overlay = document.createElement('div');
-      overlay.className = 'modal-overlay';
-      overlay.innerHTML = `
-        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-          <h3 id="modal-title">Confirme seus dados</h3>
-          <p>Verifique se as informações estão corretas antes de enviar.</p>
-          <div class="modal-data">
-            ${data.map(item => `
-              <div class="modal-row">
-                <span class="modal-row__label">${item.label}</span>
-                <span class="modal-row__value">${item.value}</span>
-              </div>
-            `).join('')}
-          </div>
-          <div class="modal-actions">
-            <button class="btn btn--outline modal-cancel" type="button">Cancelar</button>
-            <button class="btn btn--form modal-confirm" type="button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              Enviar
-            </button>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(overlay);
-      document.body.style.overflow = 'hidden';
-
-      overlay.querySelector('.modal-confirm').addEventListener('click', () => {
-        overlay.remove();
-        document.body.style.overflow = '';
-        resolve(true);
-      });
-
-      overlay.querySelector('.modal-cancel').addEventListener('click', () => {
-        overlay.remove();
-        document.body.style.overflow = '';
-        resolve(false);
-      });
-
-      overlay.addEventListener('click', e => {
-        if (e.target === overlay) {
-          overlay.remove();
-          document.body.style.overflow = '';
-          resolve(false);
-        }
-      });
-
-      document.addEventListener('keydown', function handler(e) {
-        if (e.key === 'Escape') {
-          overlay.remove();
-          document.body.style.overflow = '';
-          document.removeEventListener('keydown', handler);
-          resolve(false);
-        }
-      });
-    });
-  }
-
-  /* ─── 11. LEAD FORM (SULTS CRM) ──────────────────── */
+  /* ─── 10. LEAD FORM (SULTS CRM) ──────────────────── */
 
   const WEBHOOK_URL = 'https://sults-api.giovanni-aguiar.workers.dev';
 
@@ -499,20 +438,6 @@
         },
         pessoa: { nome, email, phone },
       };
-
-      // ── Confirmation modal ──
-      const confirmed = await showConfirmModal([
-        { label: 'Nome', value: nome },
-        { label: 'E-mail', value: email },
-        { label: 'Telefone', value: `+55 ${document.getElementById('telefone').value.trim()}` },
-        { label: 'Cidade', value: cidade },
-        { label: 'Investimento', value: investimento },
-      ]);
-      if (!confirmed) {
-        btn.disabled = false;
-        btn.innerHTML = originalHTML;
-        return;
-      }
 
       // ── Send to webhook ──
       try {
