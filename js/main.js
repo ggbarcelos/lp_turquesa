@@ -77,7 +77,7 @@
     let idx = 0;
 
     // Hero background
-    setBg(document.getElementById('heroBg'), pool[idx++]);
+    // setBg(document.getElementById('heroBg'), pool[idx++]);
 
     // Sobre section image
     setBg(document.getElementById('sobreImg'), pool[idx++]);
@@ -85,38 +85,19 @@
     // Mercado background
     setBg(document.getElementById('mercadoBg'), pool[idx++]);
 
-    // Gallery – infinite marquee (two rows, opposite directions)
-    const row1El = document.getElementById('galeriaRow1');
-    const row2El = document.getElementById('galeriaRow2');
-    if (row1El && row2El) {
-      const remaining = pool.slice(idx);
-      const half = Math.ceil(remaining.length / 2);
-      const row1imgs = remaining.slice(0, half);
-      const row2imgs = remaining.slice(half);
+    // Gallery – Luxury Grid
+    const gridItems = document.querySelectorAll('.galeria__item');
+    if (gridItems.length) {
+      const pool = shuffle(CONCEPT_IMAGES);
+      gridItems.forEach((item, i) => {
+        const src = pool[i % pool.length];
+        item.style.backgroundImage = `url('${encodePath(src)}')`;
+        item.dataset.src = src;
 
-      function buildStrip(el, imgs, clickable) {
-        // Duplicate items for seamless infinite loop
-        const doubled = [...imgs, ...imgs];
-        doubled.forEach(src => {
-          const div = document.createElement('div');
-          div.className = 'galeria__item';
-          div.setAttribute('role', 'img');
-          div.setAttribute('aria-label', 'Espaço Turquesa');
-          div.dataset.src = src;
-          setBg(div, src);
-          el.appendChild(div);
+        item.addEventListener('click', () => {
+          openLightbox(src);
         });
-
-        if (clickable) {
-          el.addEventListener('click', e => {
-            const item = e.target.closest('.galeria__item');
-            if (item && item.dataset.src) openLightbox(item.dataset.src);
-          });
-        }
-      }
-
-      buildStrip(row1El, row1imgs, true);
-      buildStrip(row2El, row2imgs, true);
+      });
     }
   }
 
@@ -314,6 +295,25 @@
     const successBox  = document.getElementById('formSuccess');
     const networkErr  = document.getElementById('formNetworkError');
     if (!form || !successBox) return;
+
+    // ── Custom validity messages in Portuguese ──
+    const VALIDITY_MSGS = {
+      nome:          'Por favor, informe seu nome completo.',
+      email:         'Informe um e-mail válido.',
+      telefone:      'Informe um telefone com DDD.',
+      cidade:        'Informe a cidade de interesse.',
+      investimento:  'Selecione a faixa de investimento.',
+    };
+
+    Object.entries(VALIDITY_MSGS).forEach(([id, msg]) => {
+      const input = document.getElementById(id);
+      if (!input) return;
+      input.addEventListener('invalid', () => { input.setCustomValidity(msg); });
+      input.addEventListener('input', () => { input.setCustomValidity(''); });
+      if (input.tagName === 'SELECT') {
+        input.addEventListener('change', () => { input.setCustomValidity(''); });
+      }
+    });
 
     // Live-clear errors on input
     Object.keys(RULES).forEach(id => {
