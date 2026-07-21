@@ -88,9 +88,8 @@
     // Gallery – Luxury Grid
     const gridItems = document.querySelectorAll('.galeria__item');
     if (gridItems.length) {
-      const pool = shuffle(CONCEPT_IMAGES);
       gridItems.forEach((item, i) => {
-        const src = pool[i % pool.length];
+        const src = CONCEPT_IMAGES[i];
         item.style.backgroundImage = `url('${encodePath(src)}')`;
         item.dataset.src = src;
 
