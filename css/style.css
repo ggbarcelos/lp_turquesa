@@ -529,7 +529,6 @@ button {
   display: block;
   font-size: clamp(1.3rem, 2.8vw, 2rem);
   font-weight: 300;
-  font-style: italic;
   color: rgba(255,255,255,0.7);
   letter-spacing: 0.03em;
 }
@@ -565,11 +564,13 @@ button {
 }
 
 .hero__stat-value {
-  font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  font-weight: 800;
-  line-height: 1.1;
-  filter: drop-shadow(0 2px 8px rgba(216, 178, 155, 0.25));
+  font-family: var(--font-sans);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--gold) !important;
+  -webkit-text-fill-color: var(--gold) !important;
+  text-shadow: 0 0 24px rgba(216, 178, 155, 0.35);
 }
 
 .hero__stat-label {
