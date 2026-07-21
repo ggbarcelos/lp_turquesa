@@ -37,6 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=2">
 
   <!-- Google Tag Manager -->
@@ -48,22 +49,24 @@
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container">
-      <div class="header__inner">
-        <a href="#" class="header__logo" aria-label="Turquesa – Início">
+      <nav class="header__inner navbar navbar-expand-md p-0">
+        <a href="#" class="header__logo navbar-brand p-0 m-0" aria-label="Turquesa – Início">
           <img src="img/logo.png" alt="Turquesa Salão de Beleza" height="64">
         </a>
-        <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+        <button class="header__menu-btn navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="Abrir menu">
           <span></span><span></span><span></span>
         </button>
-        <nav class="header__nav" id="headerNav" aria-label="Navegação principal">
-          <a href="#sobre">Sobre</a>
-          <a href="#gestao">Gestão</a>
-          <a href="#numeros">Números</a>
-          <a href="#diferenciais">Diferenciais</a>
-          <a href="#modelos">Modelos</a>
-          <a href="#galeria">Galeria</a>
-        </nav>
-      </div>
+        <div class="collapse navbar-collapse" id="headerNav">
+          <ul class="header__nav navbar-nav ms-auto gap-xxl-4">
+            <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
+            <li class="nav-item"><a href="#gestao" class="nav-link">Gestão</a></li>
+            <li class="nav-item"><a href="#numeros" class="nav-link">Números</a></li>
+            <li class="nav-item"><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+            <li class="nav-item"><a href="#modelos" class="nav-link">Modelos</a></li>
+            <li class="nav-item"><a href="#galeria" class="nav-link">Galeria</a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -72,8 +75,8 @@
     <div class="hero__bg" id="heroBg" role="img" aria-label="Ambiente Turquesa"></div>
     <div class="hero__overlay"></div>
     <div class="container hero__content">
-      <div class="hero__grid">
-        <div class="hero__text">
+      <div class="row align-items-center gx-lg-5">
+        <div class="col-lg-7 hero__text">
           <span class="label label--gold" data-animate-hero>Oportunidade de Negócio</span>
           <h1 class="hero__headline" data-animate-hero>
             Tenha sua própria <br><span class="highlight-gold">Franquia de Sucesso</span><br> no mercado de beleza.
@@ -84,7 +87,7 @@
             <br><strong>Investimento a partir de <span class="highlight-gold">170 mil</span></strong>
           </p>
         </div>
-        <div class="hero__visual" data-animate-hero>
+        <div class="col-lg-5 hero__visual" data-animate-hero>
           <div class="hero__image-card">
             <img src="img/img_hero.jpeg" alt="Franquia de Sucesso" class="hero__main-img">
           </div>
@@ -100,8 +103,8 @@
     </div>
     <div class="contato__overlay"></div>
     <div class="container">
-      <div class="contato__grid">
-        <div class="contato__content" data-animate>
+      <div class="row align-items-center gx-lg-5">
+        <div class="col-lg-6 contato__content mb-4 mb-lg-0" data-animate>
           <span class="label label--gold">Próximo Passo</span>
           <h2 class="section-title section-title--white">Seja um franqueado <span class="highlight-gold">Turquesa</span></h2>
           <p class="section-subtitle section-subtitle--white">Preencha o formulário e um de nossos consultores entrará em contato para apresentar todas as oportunidades disponíveis na sua região.</p>
@@ -132,7 +135,7 @@
             </li>
           </ul>
         </div>
-        <div class="contato__form-wrap" data-animate>
+        <div class="col-lg-6 contato__form-wrap" data-animate>
           <form class="form" id="leadForm" autocomplete="nope" aria-label="Formulário de interesse em franquia">
             <div class="form__group">
               <label for="nome">Nome completo <span aria-label="obrigatório">*</span></label>
@@ -193,8 +196,8 @@
   <!-- ===== SOBRE NÓS ===== -->
   <section class="sobre" id="sobre" aria-label="Sobre a Turquesa">
     <div class="container">
-      <div class="sobre__grid">
-        <div class="sobre__content" data-animate>
+      <div class="row align-items-center gx-lg-5 gy-5">
+        <div class="col-lg-6 sobre__content" data-animate>
           <span class="label">Nossa Rede</span>
           <h2 class="section-title">A Franquia que <span class="highlight-gold">Transforma o Mercado</span></h2>
           <p class="sobre__text">
@@ -207,7 +210,7 @@
             Quero fazer parte
           </a>
         </div>
-        <div class="sobre__image-wrap" data-animate>
+        <div class="col-lg-6 sobre__image-wrap" data-animate>
           <div class="sobre__image" id="sobreImg"></div>
           <div class="sobre__badge">
             <span class="sobre__badge-num">12<sup>+</sup></span>
@@ -227,34 +230,42 @@
         <h2 class="section-title section-title--white">Um modelo de gestão que funciona</h2>
         <p class="section-subtitle section-subtitle--white">Estruturado para replicar sucesso em qualquer praça do Brasil.</p>
       </div>
-      <div class="gestao__grid" data-animate>
-        <div class="gestao__card">
-          <div class="gestao__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <div class="row g-4" data-animate>
+        <div class="col-md-6 col-lg-3">
+          <div class="gestao__card h-100">
+            <div class="gestao__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Marca com posicionamento moderno</h3>
+            <p>Identidade visual forte e reconhecível, com presença digital ativa e engajada.</p>
           </div>
-          <h3>Marca com posicionamento moderno</h3>
-          <p>Identidade visual forte e reconhecível, com presença digital ativa e engajada.</p>
         </div>
-        <div class="gestao__card">
-          <div class="gestao__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        <div class="col-md-6 col-lg-3">
+          <div class="gestao__card h-100">
+            <div class="gestao__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+            </div>
+            <h3>Operação replicável</h3>
+            <p>Processos documentados e testados que garantem padrão de qualidade em todas as unidades.</p>
           </div>
-          <h3>Operação replicável</h3>
-          <p>Processos documentados e testados que garantem padrão de qualidade em todas as unidades.</p>
         </div>
-        <div class="gestao__card">
-          <div class="gestao__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <div class="col-md-6 col-lg-3">
+          <div class="gestao__card h-100">
+            <div class="gestao__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h3>Suporte estratégico contínuo</h3>
+            <p>Time dedicado para marketing, operações, treinamento e crescimento de cada unidade.</p>
           </div>
-          <h3>Suporte estratégico contínuo</h3>
-          <p>Time dedicado para marketing, operações, treinamento e crescimento de cada unidade.</p>
         </div>
-        <div class="gestao__card">
-          <div class="gestao__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="col-md-6 col-lg-3">
+          <div class="gestao__card h-100">
+            <div class="gestao__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>Alta lucratividade por cliente</h3>
+            <p>Portfólio de serviços integrados que elevam o ticket médio e fidelizam clientes.</p>
           </div>
-          <h3>Alta lucratividade por cliente</h3>
-          <p>Portfólio de serviços integrados que elevam o ticket médio e fidelizam clientes.</p>
         </div>
       </div>
     </div>
@@ -268,27 +279,33 @@
         <h2 class="section-title">Uma das redes que mais crescem no Brasil</h2>
         <p class="section-subtitle">Nossos indicadores confirmam: investir na Turquesa é garantia de um negócio sólido.</p>
       </div>
-      <div class="numeros__grid" data-animate>
-        <div class="numeros__card">
-          <div class="numeros__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+      <div class="row g-4 justify-content-center" data-animate>
+        <div class="col-md-4">
+          <div class="numeros__card h-100">
+            <div class="numeros__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <span class="numeros__value counter highlight-gold" data-target="80">0</span><span class="numeros__sup highlight-gold">+</span>
+            <span class="numeros__label">unidades franqueadas</span>
           </div>
-          <span class="numeros__value counter highlight-gold" data-target="80">0</span><span class="numeros__sup highlight-gold">+</span>
-          <span class="numeros__label">unidades franqueadas</span>
         </div>
-        <div class="numeros__card">
-          <div class="numeros__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <div class="col-md-4">
+          <div class="numeros__card h-100">
+            <div class="numeros__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <span class="numeros__value counter highlight-gold" data-target="12">0</span><span class="numeros__sup highlight-gold">+</span>
+            <span class="numeros__label">anos de know-how</span>
           </div>
-          <span class="numeros__value counter highlight-gold" data-target="12">0</span><span class="numeros__sup highlight-gold">+</span>
-          <span class="numeros__label">anos de know-how</span>
         </div>
-        <div class="numeros__card">
-          <div class="numeros__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        <div class="col-md-4">
+          <div class="numeros__card h-100">
+            <div class="numeros__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <span class="numeros__value counter highlight-gold" data-target="40">0</span><span class="numeros__sup highlight-gold">%</span>
+            <span class="numeros__label">lucratividade média</span>
           </div>
-          <span class="numeros__value counter highlight-gold" data-target="40">0</span><span class="numeros__sup highlight-gold">%</span>
-          <span class="numeros__label">lucratividade média</span>
         </div>
       </div>
     </div>
@@ -335,48 +352,60 @@
         <h2 class="section-title">Diferenciais que constroem<br>o seu negócio</h2>
         <p class="section-subtitle">Tudo que você precisa para abrir, operar e crescer com segurança e confiança.</p>
       </div>
-      <div class="diferenciais__grid" data-animate>
-        <div class="diferenciais__card">
-          <div class="diferenciais__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+      <div class="row g-4" data-animate>
+        <div class="col-md-6 col-lg-4">
+          <div class="diferenciais__card h-100">
+            <div class="diferenciais__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            </div>
+            <h3>Produtos de linha própria Turquesa</h3>
+            <p>Linha exclusiva com formulações premium que aumentam sua margem e fidelizam clientes.</p>
           </div>
-          <h3>Produtos de linha própria Turquesa</h3>
-          <p>Linha exclusiva com formulações premium que aumentam sua margem e fidelizam clientes.</p>
         </div>
-        <div class="diferenciais__card">
-          <div class="diferenciais__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="col-md-6 col-lg-4">
+          <div class="diferenciais__card h-100">
+            <div class="diferenciais__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>Alta rentabilidade</h3>
+            <p>Modelo de negócio com margens acima da média do setor e payback acelerado.</p>
           </div>
-          <h3>Alta rentabilidade</h3>
-          <p>Modelo de negócio com margens acima da média do setor e payback acelerado.</p>
         </div>
-        <div class="diferenciais__card">
-          <div class="diferenciais__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        <div class="col-md-6 col-lg-4">
+          <div class="diferenciais__card h-100">
+            <div class="diferenciais__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <h3>Espaço projetado para você vender</h3>
+            <p>Projeto arquitetônico exclusivo que guia o cliente naturalmente ao consumo e fidelização.</p>
           </div>
-          <h3>Espaço projetado para você vender</h3>
-          <p>Projeto arquitetônico exclusivo que guia o cliente naturalmente ao consumo e fidelização.</p>
         </div>
-        <div class="diferenciais__card">
-          <div class="diferenciais__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <div class="col-md-6 col-lg-4">
+          <div class="diferenciais__card h-100">
+            <div class="diferenciais__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            </div>
+            <h3>Suporte completo para você</h3>
+            <p>Da implantação ao crescimento: suporte técnico, operacional e de marketing sempre disponível.</p>
           </div>
-          <h3>Suporte completo para você</h3>
-          <p>Da implantação ao crescimento: suporte técnico, operacional e de marketing sempre disponível.</p>
         </div>
-        <div class="diferenciais__card">
-          <div class="diferenciais__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        <div class="col-md-6 col-lg-4">
+          <div class="diferenciais__card h-100">
+            <div class="diferenciais__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            </div>
+            <h3>Universidade Turquesa</h3>
+            <p>Plataforma de treinamento EAD com trilhas completas para gestores e equipe técnica.</p>
           </div>
-          <h3>Universidade Turquesa</h3>
-          <p>Plataforma de treinamento EAD com trilhas completas para gestores e equipe técnica.</p>
         </div>
-        <div class="diferenciais__card">
-          <div class="diferenciais__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="col-md-6 col-lg-4">
+          <div class="diferenciais__card h-100">
+            <div class="diferenciais__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>Sustentabilidade (ESG)</h3>
+            <p>Compromisso com práticas responsáveis que valorizam sua marca perante o consumidor moderno.</p>
           </div>
-          <h3>Sustentabilidade (ESG)</h3>
-          <p>Compromisso com práticas responsáveis que valorizam sua marca perante o consumidor moderno.</p>
         </div>
       </div>
     </div>
@@ -391,30 +420,36 @@
         <h2 class="section-title section-title--white">Números que inspiram confiança</h2>
         <p class="section-subtitle section-subtitle--white">Indicadores reais com base na performance da rede.</p>
       </div>
-      <div class="financeiros__grid" data-animate>
-        <div class="financeiros__card">
-          <div class="financeiros__top-icon highlight-gold" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      <div class="row g-4 justify-content-center" data-animate>
+        <div class="col-md-4">
+          <div class="financeiros__card h-100">
+            <div class="financeiros__top-icon highlight-gold" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <span class="financeiros__value highlight-gold">R$ 1,5mi</span>
+            <span class="financeiros__label">Faturamento anual potencial</span>
+            <div class="financeiros__bar"></div>
           </div>
-          <span class="financeiros__value highlight-gold">R$ 2,4mi</span>
-          <span class="financeiros__label">Faturamento anual potencial</span>
-          <div class="financeiros__bar"></div>
         </div>
-        <div class="financeiros__card financeiros__card--featured">
-          <div class="financeiros__top-icon highlight-gold" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        <div class="col-md-4">
+          <div class="financeiros__card financeiros__card--featured h-100">
+            <div class="financeiros__top-icon highlight-gold" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <span class="financeiros__value highlight-gold">20<sup>%</sup></span>
+            <span class="financeiros__label">Margem operacional estimada</span>
+            <div class="financeiros__bar"></div>
           </div>
-          <span class="financeiros__value highlight-gold">30<sup>%</sup></span>
-          <span class="financeiros__label">Margem operacional estimada</span>
-          <div class="financeiros__bar"></div>
         </div>
-        <div class="financeiros__card">
-          <div class="financeiros__top-icon highlight-gold" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="col-md-4">
+          <div class="financeiros__card h-100">
+            <div class="financeiros__top-icon highlight-gold" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <span class="financeiros__value highlight-gold">18<span class="financeiros__unit">meses</span></span>
+            <span class="financeiros__label">Payback estimado</span>
+            <div class="financeiros__bar"></div>
           </div>
-          <span class="financeiros__value highlight-gold">18<span class="financeiros__unit">meses</span></span>
-          <span class="financeiros__label">Payback estimado</span>
-          <div class="financeiros__bar"></div>
         </div>
       </div>
       <p class="financeiros__disclaimer">* Valores estimados com base em projeções da rede. Consulte um consultor para análise individualizada.</p>
@@ -433,10 +468,10 @@
         <p class="section-subtitle">Três formatos pensados para diferentes perfis de empreendedor, todos com o DNA Turquesa de qualidade e suporte.</p>
       </div>
 
-      <div class="modelos__grid">
+      <div class="row g-4 justify-content-center">
 
         <!-- Turquesa Nails -->
-        <article class="modelo-card" data-animate>
+        <article class="modelo-card col-lg-4" data-animate>
           <div class="modelo-card__badge">Menor Investimento</div>
           <div class="modelo-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C9.5 2 7.5 4 7.5 6.5V8H5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-2.5V6.5C16.5 4 14.5 2 12 2z"/><path d="M9 11v2m6-2v2"/></svg>
@@ -464,7 +499,7 @@
         </article>
 
         <!-- Turquesa Beauty (destaque) -->
-        <article class="modelo-card modelo-card--featured" data-animate>
+        <article class="modelo-card modelo-card--featured col-lg-4" data-animate>
           <div class="modelo-card__badge modelo-card__badge--featured">Mais Completo</div>
           <div class="modelo-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M17 3s2 1 2 5"/><path d="M7 3S5 4 5 8"/></svg>
@@ -492,7 +527,7 @@
         </article>
 
         <!-- Turquesa Hair -->
-        <article class="modelo-card" data-animate>
+        <article class="modelo-card col-lg-4" data-animate>
           <div class="modelo-card__badge">Alta Recorrência</div>
           <div class="modelo-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8 2 5 5 5 9c0 2.4 1.1 4.5 2.8 5.9L7 21h10l-.8-6.1C17.9 13.5 19 11.4 19 9c0-4-3-7-7-7z"/></svg>
@@ -533,41 +568,53 @@
         <p class="section-subtitle section-subtitle--white">Conheça os espaços projetados para oferecer uma experiência de luxo inigualável.</p>
       </div>
 
-      <div class="galeria__grid" data-animate>
-        <div class="galeria__item-wrapper">
-          <div class="galeria__item" id="galeriaItem1" data-idx="0"></div>
-          <div class="galeria__content">
-            <h3 class="galeria__item-title">Design Exclusivo</h3>
+      <div class="row g-3" data-animate>
+        <div class="col-md-6 col-lg-4">
+          <div class="galeria__item-wrapper">
+            <div class="galeria__item" id="galeriaItem1" data-idx="0"></div>
+            <div class="galeria__content">
+              <h3 class="galeria__item-title">Design Exclusivo</h3>
+            </div>
           </div>
         </div>
-        <div class="galeria__item-wrapper">
-          <div class="galeria__item" id="galeriaItem2" data-idx="1"></div>
-          <div class="galeria__content">
-            <h3 class="galeria__item-title">Conforto Premium</h3>
+        <div class="col-md-6 col-lg-4">
+          <div class="galeria__item-wrapper">
+            <div class="galeria__item" id="galeriaItem2" data-idx="1"></div>
+            <div class="galeria__content">
+              <h3 class="galeria__item-title">Conforto Premium</h3>
+            </div>
           </div>
         </div>
-        <div class="galeria__item-wrapper">
-          <div class="galeria__item" id="galeriaItem3" data-idx="2"></div>
-          <div class="galeria__content">
-            <h3 class="galeria__item-title">Atendimento VIP</h3>
+        <div class="col-md-6 col-lg-4">
+          <div class="galeria__item-wrapper">
+            <div class="galeria__item" id="galeriaItem3" data-idx="2"></div>
+            <div class="galeria__content">
+              <h3 class="galeria__item-title">Atendimento VIP</h3>
+            </div>
           </div>
         </div>
-        <div class="galeria__item-wrapper">
-          <div class="galeria__item" id="galeriaItem4" data-idx="3"></div>
-          <div class="galeria__content">
-            <h3 class="galeria__item-title">Ambientes Sofisticados</h3>
+        <div class="col-md-6 col-lg-4">
+          <div class="galeria__item-wrapper">
+            <div class="galeria__item" id="galeriaItem4" data-idx="3"></div>
+            <div class="galeria__content">
+              <h3 class="galeria__item-title">Ambientes Sofisticados</h3>
+            </div>
           </div>
         </div>
-        <div class="galeria__item-wrapper">
-          <div class="galeria__item" id="galeriaItem5" data-idx="4"></div>
-          <div class="galeria__content">
-            <h3 class="galeria__item-title">Experiência Turquesa</h3>
+        <div class="col-md-6 col-lg-4">
+          <div class="galeria__item-wrapper">
+            <div class="galeria__item" id="galeriaItem5" data-idx="4"></div>
+            <div class="galeria__content">
+              <h3 class="galeria__item-title">Experiência Turquesa</h3>
+            </div>
           </div>
         </div>
-        <div class="galeria__item-wrapper">
-          <div class="galeria__item" id="galeriaItem6" data-idx="5"></div>
-          <div class="galeria__content">
-            <h3 class="galeria__item-title">Luxo em cada detalhe</h3>
+        <div class="col-md-6 col-lg-4">
+          <div class="galeria__item-wrapper">
+            <div class="galeria__item" id="galeriaItem6" data-idx="5"></div>
+            <div class="galeria__content">
+              <h3 class="galeria__item-title">Luxo em cada detalhe</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -633,6 +680,8 @@
       <path d="M5 12h14M12 5l7 7-7 7"/>
     </svg>
   </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- EmailJS SDK -->
   <script src="js/email.min.js"></script>

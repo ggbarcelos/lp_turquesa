@@ -114,42 +114,18 @@
     onScroll(); // run once on load
   }
 
-  /* ─── 5. MOBILE MENU ─────────────────────────────── */
+  /* ─── 5. MOBILE MENU (Bootstrap collapse) ────────── */
 
   function initMobileMenu() {
-    const btn = document.getElementById('menuBtn');
-    const nav = document.getElementById('headerNav');
-    if (!btn || !nav) return;
+    const collapseEl = document.getElementById('headerNav');
+    if (!collapseEl) return;
+    const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
 
-    // Clone nav into mobile overlay
-    const mobileNav = document.createElement('nav');
-    mobileNav.className = 'header__nav--mobile';
-    mobileNav.setAttribute('aria-label', 'Menu mobile');
-    mobileNav.innerHTML = nav.innerHTML;
-    document.getElementById('header').after(mobileNav);
-
-    btn.addEventListener('click', () => {
-      const isOpen = btn.classList.toggle('open');
-      mobileNav.classList.toggle('open', isOpen);
-      btn.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // Close on link click
-    mobileNav.querySelectorAll('a').forEach(a => {
+    // Close collapse on link click (smooth-scroll)
+    collapseEl.querySelectorAll('.nav-link').forEach(a => {
       a.addEventListener('click', () => {
-        btn.classList.remove('open');
-        mobileNav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
+        if (collapseEl.classList.contains('show')) bsCollapse.hide();
       });
-    });
-
-    // Close on outside click
-    document.addEventListener('click', e => {
-      if (!btn.contains(e.target) && !mobileNav.contains(e.target)) {
-        btn.classList.remove('open');
-        mobileNav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }
     });
   }
 
