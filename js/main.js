@@ -484,44 +484,62 @@
     document.head.appendChild(style);
   }
 
-  /* ─── 14. DEPOIMENTO VIDEO ────────────────────────── */
+  /* ─── 14. DEPOIMENTOS LIGHTBOX ────────────────────── */
 
-  function initDepoimentoVideo() {
-    const wrapper = document.querySelector('.depoimento__video-wrapper');
-    if (!wrapper) return;
-    const video = wrapper.querySelector('.depoimento__video');
-    const btn = wrapper.querySelector('.depoimento__play-btn');
-    const playIcon = wrapper.querySelector('.depoimento__play-icon');
-    const pauseIcon = wrapper.querySelector('.depoimento__pause-icon');
-    const overlay = wrapper.querySelector('.depoimento__video-overlay');
-    if (!video || !btn) return;
+  function initDepoimentos() {
+    const lb = document.getElementById('depoimentoLb');
+    const lbVideo = document.getElementById('depoimentoLbVideo');
+    const lbClose = lb?.querySelector('.depoimento-lb__close');
+    const lbBackdrop = lb?.querySelector('.depoimento-lb__backdrop');
+    if (!lb || !lbVideo) return;
 
-    // Click outside button toggles too
-    wrapper.addEventListener('click', toggle);
-    btn.addEventListener('click', e => { e.stopPropagation(); toggle(); });
+    const cards = document.querySelectorAll('.depoimentos__card');
+    let currentVideo = null;
 
-    video.addEventListener('ended', () => {
-      btn.classList.remove('playing');
-      if (playIcon) playIcon.style.display = '';
-      if (pauseIcon) pauseIcon.style.display = 'none';
-      if (overlay) overlay.style.opacity = '1';
+    function open(card) {
+      const youtubeId = card.dataset.videoYoutube;
+      const localSrc = card.dataset.videoLocal;
+
+      lbVideo.innerHTML = '';
+
+      if (youtubeId) {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`;
+        iframe.allow = 'autoplay; encrypted-media';
+        iframe.allowFullscreen = true;
+        iframe.loading = 'lazy';
+        lbVideo.appendChild(iframe);
+      } else if (localSrc) {
+        const video = document.createElement('video');
+        video.src = localSrc;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.className = 'depoimento-lb__local-video';
+        lbVideo.appendChild(video);
+        currentVideo = video;
+      }
+
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      if (currentVideo) { currentVideo.pause(); currentVideo = null; }
+      lbVideo.innerHTML = '';
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => open(card));
     });
 
-    function toggle() {
-      if (video.paused || video.ended) {
-        video.play();
-        btn.classList.add('playing');
-        if (playIcon) playIcon.style.display = 'none';
-        if (pauseIcon) pauseIcon.style.display = '';
-        if (overlay) overlay.style.opacity = '0';
-      } else {
-        video.pause();
-        btn.classList.remove('playing');
-        if (playIcon) playIcon.style.display = '';
-        if (pauseIcon) pauseIcon.style.display = 'none';
-        if (overlay) overlay.style.opacity = '1';
-      }
-    }
+    if (lbClose) lbClose.addEventListener('click', close);
+    if (lbBackdrop) lbBackdrop.addEventListener('click', close);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lb.classList.contains('active')) close();
+    });
   }
 
   /* ─── 15. FLOATING CTA VISIBILITY ───────────────── */
@@ -564,7 +582,7 @@
     initCounters();
     initPhoneMask();
     initForm();
-    initDepoimentoVideo();
+    initDepoimentos();
     initFabCta();
   });
 

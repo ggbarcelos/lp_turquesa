@@ -473,43 +473,96 @@
     </div>
   </section>
 
-  <!-- ===== DEPOIMENTO / PROVA SOCIAL ===== -->
-  <section class="depoimento" id="depoimento" aria-label="Depoimento de franqueada">
+  <!-- ===== DEPOIMENTOS / PROVA SOCIAL ===== -->
+  <section class="depoimentos" id="depoimentos" aria-label="Depoimentos de franqueadas">
     <div class="container">
-      <div class="row align-items-center gx-lg-5 gy-5">
-        <div class="col-lg-6 depoimento__video-wrap" data-animate>
-          <div class="depoimento__video-wrapper">
-            <video class="depoimento__video" playsinline poster="img/img_hero.jpeg">
-              <source src="videos/IMG_2348.MP4" type="video/mp4">
-            </video>
-            <div class="depoimento__video-overlay"></div>
-            <button class="depoimento__play-btn" aria-label="Reproduzir vídeo" type="button">
-              <svg class="depoimento__play-icon" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
-              <svg class="depoimento__pause-icon" viewBox="0 0 24 24" fill="currentColor" width="28" height="28" style="display:none"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-            </button>
+      <div class="section-header" data-animate>
+        <span class="label label--gold">Depoimentos</span>
+        <h2 class="section-title">A voz de quem <span class="highlight-gold">vive a Turquesa</span></h2>
+        <p class="section-subtitle">Histórias reais de franqueadas que transformaram suas carreiras com a Turquesa.</p>
+      </div>
+      <div class="row g-4" data-animate>
+        <!-- Sandja -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="depoimentos__card" data-video-local="videos/IMG_2348.MP4" data-video-poster="img/img_hero.jpeg">
+            <div class="depoimentos__thumb">
+              <img src="img/img_hero.jpeg" alt="Sandja" class="depoimentos__thumb-img" loading="lazy">
+              <div class="depoimentos__thumb-overlay"></div>
+              <button class="depoimentos__play" type="button" aria-label="Reproduzir depoimento de Sandja">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="depoimentos__info">
+              <strong class="depoimentos__name">Sandja</strong>
+              <span class="depoimentos__role">Nova Parnamirim</span>
+            </div>
           </div>
         </div>
-        <div class="col-lg-6 depoimento__content" data-animate>
-          <span class="label label--gold">Depoimento</span>
-          <h2 class="section-title">A voz de quem<br><span class="highlight-gold">vive a Turquesa</span></h2>
-          <div class="depoimento__divider"></div>
-          <blockquote class="depoimento__quote">
-            <svg class="depoimento__quote-icon" viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M10 11H6a1 1 0 01-1-1V7a1 1 0 011-1h4a1 1 0 011 1v6c0 2.5-1.3 4.8-3.5 6.1a1 1 0 11-1-1.7A4.4 4.4 0 0010 13v-2zm11 0h-4a1 1 0 01-1-1V7a1 1 0 011-1h4a1 1 0 011 1v6c0 2.5-1.3 4.8-3.5 6.1a1 1 0 11-1-1.7A4.4 4.4 0 0021 13v-2z"/></svg>
-            <p class="depoimento__text">“Mais que uma franquia, encontrei parceria, suporte e&nbsp;um&nbsp;modelo que realmente funciona.”</p>
-          </blockquote>
-          <div class="depoimento__author">
-            <div class="depoimento__author-avatar" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+
+        <!-- Nathália - Parque da Cidade -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="depoimentos__card" data-video-youtube="SCEfpdaiWd4">
+            <div class="depoimentos__thumb">
+              <img src="https://img.youtube.com/vi/SCEfpdaiWd4/maxresdefault.jpg" alt="Nathália" class="depoimentos__thumb-img" loading="lazy">
+              <div class="depoimentos__thumb-overlay"></div>
+              <button class="depoimentos__play" type="button" aria-label="Reproduzir depoimento de Nathália">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+              </button>
             </div>
-            <div class="depoimento__author-info">
-              <strong class="depoimento__author-name">Sandja</strong>
-              <span class="depoimento__author-role">Franqueada Turquesa</span>
+            <div class="depoimentos__info">
+              <strong class="depoimentos__name">Nathália</strong>
+              <span class="depoimentos__role">Parque da Cidade</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Andreza e Bia - Jatiúca -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="depoimentos__card" data-video-youtube="47lnzFF1fWg">
+            <div class="depoimentos__thumb">
+              <img src="https://img.youtube.com/vi/47lnzFF1fWg/maxresdefault.jpg" alt="Andreza e Bia" class="depoimentos__thumb-img" loading="lazy">
+              <div class="depoimentos__thumb-overlay"></div>
+              <button class="depoimentos__play" type="button" aria-label="Reproduzir depoimento de Andreza e Bia">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="depoimentos__info">
+              <strong class="depoimentos__name">Andreza &amp; Bia</strong>
+              <span class="depoimentos__role">Jatiúca</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marjorie - Brookyn -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="depoimentos__card" data-video-youtube="eLTpGLxgNZ4">
+            <div class="depoimentos__thumb">
+              <img src="https://img.youtube.com/vi/eLTpGLxgNZ4/maxresdefault.jpg" alt="Marjorie" class="depoimentos__thumb-img" loading="lazy">
+              <div class="depoimentos__thumb-overlay"></div>
+              <button class="depoimentos__play" type="button" aria-label="Reproduzir depoimento de Marjorie">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="depoimentos__info">
+              <strong class="depoimentos__name">Marjorie</strong>
+              <span class="depoimentos__role">Brookyn</span>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Lightbox de depoimentos -->
+  <div class="depoimento-lb" id="depoimentoLb" role="dialog" aria-modal="true" aria-label="Vídeo de depoimento">
+    <div class="depoimento-lb__backdrop"></div>
+    <div class="depoimento-lb__content">
+      <button class="depoimento-lb__close" type="button" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="depoimento-lb__video" id="depoimentoLbVideo"></div>
+    </div>
+  </div>
 
   <!-- ===== MODELOS DE NEGÓCIO ===== -->
   <section class="modelos" id="modelos" aria-label="Modelos de negócio">
@@ -527,21 +580,20 @@
 
         <!-- Turquesa Nails -->
         <article class="modelo-card col-lg-4" data-animate>
-          <div class="modelo-card__badge">Menor Investimento</div>
           <div class="modelo-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C9.5 2 7.5 4 7.5 6.5V8H5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-2.5V6.5C16.5 4 14.5 2 12 2z"/><path d="M9 11v2m6-2v2"/></svg>
           </div>
           <h3 class="modelo-card__name">Turquesa <strong>Nails</strong></h3>
-          <p class="modelo-card__desc">Especialização em um dos serviços mais recorrentes da beleza: unhas.</p>
-          <ul class="modelo-card__features" aria-label="Diferenciais Turquesa Nails">
-            <li><span aria-hidden="true">✦</span> Alta frequência de clientes</li>
-            <li><span aria-hidden="true">✦</span> Operação enxuta e eficiente</li>
-            <li><span aria-hidden="true">✦</span> Maior giro por metro quadrado</li>
-            <li><span aria-hidden="true">✦</span> Modelo replicável e organizado</li>
+          <p class="modelo-card__desc">Esmalteria especializada, com serviços padronizados de qualidade, alto giro e foco em recorrência.</p>
+          <ul class="modelo-card__features" aria-label="Serviços Turquesa Nails">
+            <li><span aria-hidden="true">✦</span> Manicure e pedicure</li>
+            <li><span aria-hidden="true">✦</span> Esmaltação em gel</li>
+            <li><span aria-hidden="true">✦</span> Alongamento + manutenção</li>
+            <li><span aria-hidden="true">✦</span> Spa dos pés</li>
           </ul>
           <div class="modelo-card__ideal">
             <span class="modelo-card__ideal-label">Este modelo é para você se:</span>
-            <p>Busca uma gestão operacional eficiente, especializada e com alta recorrência de clientes.</p>
+            <p>Busca um negócio enxuto, especializado e com alto potencial de escala.</p>
           </div>
           <div class="modelo-card__invest">
             <span class="modelo-card__invest-label">Investimento</span>
@@ -555,21 +607,20 @@
 
         <!-- Turquesa Beauty (destaque) -->
         <article class="modelo-card modelo-card--featured col-lg-4" data-animate>
-          <div class="modelo-card__badge modelo-card__badge--featured">Mais Completo</div>
           <div class="modelo-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M17 3s2 1 2 5"/><path d="M7 3S5 4 5 8"/></svg>
           </div>
           <h3 class="modelo-card__name">Turquesa <strong>Beauty</strong></h3>
-          <p class="modelo-card__desc">Um espaço de beleza completo, com múltiplos serviços e alto potencial de faturamento.</p>
-          <ul class="modelo-card__features" aria-label="Diferenciais Turquesa Beauty">
-            <li><span aria-hidden="true">✦</span> Mix completo de serviços</li>
-            <li><span aria-hidden="true">✦</span> Maior tempo de permanência do cliente</li>
-            <li><span aria-hidden="true">✦</span> Ticket médio mais elevado</li>
-            <li><span aria-hidden="true">✦</span> Experiência que fideliza</li>
+          <p class="modelo-card__desc">Salão completo, com foco em recorrência, cross-sell e aumento de ticket por mix de serviços.</p>
+          <ul class="modelo-card__features" aria-label="Serviços Turquesa Beauty">
+            <li><span aria-hidden="true">✦</span> Unhas</li>
+            <li><span aria-hidden="true">✦</span> Cabelo</li>
+            <li><span aria-hidden="true">✦</span> Sobrancelhas e cílios</li>
+            <li><span aria-hidden="true">✦</span> Depilação</li>
           </ul>
           <div class="modelo-card__ideal">
             <span class="modelo-card__ideal-label">Este modelo é para você se:</span>
-            <p>Deseja um espaço completo de beleza, com múltiplos serviços e maior potencial de faturamento.</p>
+            <p>Deseja oferecer soluções completas de beleza e bem-estar em um único espaço.</p>
           </div>
           <div class="modelo-card__invest">
             <span class="modelo-card__invest-label">Investimento</span>
@@ -583,21 +634,20 @@
 
         <!-- Turquesa Hair -->
         <article class="modelo-card col-lg-4" data-animate>
-          <div class="modelo-card__badge">Alta Recorrência</div>
           <div class="modelo-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8 2 5 5 5 9c0 2.4 1.1 4.5 2.8 5.9L7 21h10l-.8-6.1C17.9 13.5 19 11.4 19 9c0-4-3-7-7-7z"/></svg>
           </div>
           <h3 class="modelo-card__name">Turquesa <strong>Hair</strong></h3>
-          <p class="modelo-card__desc">Cabelo como protagonista. Serviços capilares com foco em praticidade e recorrência.</p>
-          <ul class="modelo-card__features" aria-label="Diferenciais Turquesa Hair">
-            <li><span aria-hidden="true">✦</span> Serviços rápidos e acessíveis</li>
-            <li><span aria-hidden="true">✦</span> Forte hábito de consumo</li>
-            <li><span aria-hidden="true">✦</span> Alta recorrência de clientes</li>
-            <li><span aria-hidden="true">✦</span> Potencial de escala</li>
+          <p class="modelo-card__desc">Escovaria com foco em serviços rápidos (até 55 min), padronizados e de alta recorrência, com preço único.</p>
+          <ul class="modelo-card__features" aria-label="Serviços Turquesa Hair">
+            <li><span aria-hidden="true">✦</span> Escova (lavagem + finalização)</li>
+            <li><span aria-hidden="true">✦</span> Escova com tratamento</li>
+            <li><span aria-hidden="true">✦</span> Penteados</li>
+            <li><span aria-hidden="true">✦</span> Design de sobrancelhas</li>
           </ul>
           <div class="modelo-card__ideal">
             <span class="modelo-card__ideal-label">Este modelo é para você se:</span>
-            <p>Quer focar em serviços com forte hábito de consumo e faturamento previsível.</p>
+            <p>Busca um modelo padronizado, de alta recorrência e pensado para fidelização.</p>
           </div>
           <div class="modelo-card__invest">
             <span class="modelo-card__invest-label">Investimento</span>
