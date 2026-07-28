@@ -491,7 +491,9 @@ button {
   .hero__stats { justify-content: center !important; }
   .hero__divider { margin-left: auto; margin-right: auto; }
   .hero__cta-wrap { text-align: center; }
-  .hero__image-card { transform: none; animation: none; }
+  .hero__visual { min-height: 340px; }
+  .hero__image-card { position: relative; inset: auto; height: 340px; border-radius: 16px; }
+  .hero__visual::after { border-radius: 16px; }
 }
 
 /* ── Badge ── */
@@ -622,31 +624,45 @@ button {
 .hero__visual {
   position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
-  perspective: 1000px;
+  min-height: 600px;
+  height: 100%;
 }
 
 .hero__image-card {
-  position: relative;
-  width: 100%;
-  max-width: 580px;
-  border-radius: var(--radius-lg);
-  overflow: visible;
-  filter: drop-shadow(0 20px 50px rgba(0,0,0,0.6));
-  transition: transform 0.6s var(--ease-out);
-  mask-image: radial-gradient(circle, black 70%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/img_hero.jpeg');
+  background-size: cover;
+  background-position: 60% center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(216, 178, 155, 0.12);
 }
 
-.hero__image-card:hover {
-  transform: scale(1.02);
+.hero__image-accent {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  z-index: 2;
+  opacity: 0.7;
 }
 
-.hero__main-img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-lg);
-  display: block;
+.hero__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(13, 63, 64, 0.35) 0%,
+    transparent 40%
+  );
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero__logo-wrap {
