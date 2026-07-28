@@ -1293,6 +1293,7 @@ button {
   line-height: 1;
   margin-bottom: 14px;
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .financeiros__card--featured .financeiros__value {
