@@ -486,7 +486,8 @@ button {
 
 @media (max-width: 991.98px) {
   .hero__text { margin-bottom: 40px; }
-  .hero { text-align: center; padding-top: 130px; }
+  .hero { text-align: center; padding-top: 10px; }
+  .hero__content { padding-top: 80px; }
   .hero__stats { justify-content: center !important; }
   .hero__divider { margin-left: auto; margin-right: auto; }
   .hero__cta-wrap { text-align: center; }
