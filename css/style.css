@@ -113,7 +113,7 @@ button {
 }
 
 .highlight-gold {
-  background: var(--gradient-gold);
+  background: linear-gradient(135deg, #c4956a 0%, #ddb894 50%, #e8c9aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -729,7 +729,7 @@ button {
 }
 
 .sobre__text {
-  color: var(--gray-500);
+  color: var(--gray-700);
   font-size: 1.05rem;
   margin-bottom: 28px;
   line-height: 1.8;
@@ -969,17 +969,17 @@ button {
 
 .numeros__value {
   display: block;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(3rem, 7vw, 4.5rem);
-  font-weight: 700;
+  font-weight: 900;
   line-height: 1;
   margin-bottom: 8px;
 }
 
 .numeros__sup {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-weight: 700;
+  font-weight: 900;
   vertical-align: top;
   line-height: 1.3;
   margin-left: 2px;
@@ -1298,10 +1298,15 @@ button {
   color: var(--white);
 }
 
-.financeiros__value sup {
+.financeiros__value sup,
+.financeiros__pct {
   font-size: 0.48em;
-  vertical-align: super;
   letter-spacing: 0;
+  line-height: 1;
+}
+.financeiros__pct {
+  vertical-align: baseline;
+  display: inline-block;
 }
 
 .financeiros__unit {
@@ -1883,8 +1888,9 @@ button {
 
 .footer__bottom {
   grid-column: 1 / -1;
-  margin-top: 60px;
-  padding-top: 30px;
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 4px;
   border-top: 1px solid rgba(255,255,255,0.05);
   text-align: center;
 }
@@ -1892,6 +1898,45 @@ button {
 .footer__copy {
   color: rgba(255,255,255,0.4);
   font-size: 0.875rem;
+}
+
+.footer__dev {
+  grid-column: 1 / -1;
+  text-align: left;
+  padding-top: 2px;
+}
+
+.footer__dev-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.5);
+  transition: opacity 0.3s ease;
+}
+
+.footer__dev-link:hover {
+  color: rgba(255,255,255,0.5);
+}
+
+.footer__dev-text {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.footer__dev-logo {
+  display: block;
+  height: 26px;
+  width: auto;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.footer__dev-link:hover .footer__dev-logo {
+  opacity: 0.9;
 }
 
 @media (max-width: 991px) {
@@ -2534,6 +2579,215 @@ button {
 @keyframes modalSlideUp {
   from { opacity: 0; transform: translateY(20px) scale(0.97); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ===== DEPOIMENTO / PROVA SOCIAL ===== */
+.depoimento {
+  padding: var(--section-py) 0;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.depoimento::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--turquesa-pale) 0%, transparent 70%);
+  top: -120px;
+  right: -120px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.depoimento .container {
+  position: relative;
+  z-index: 1;
+}
+
+.depoimento__video-wrap {
+  position: relative;
+}
+
+.depoimento__video-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-dark) 50%, var(--green) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.depoimento__video {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  max-height: 65vh;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-sm);
+}
+
+.depoimento__video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13, 63, 64, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.depoimento__play-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.depoimento__play-btn:hover {
+  transform: scale(1.1);
+  background: var(--white);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+.depoimento__play-btn.playing {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.depoimento__video-wrapper:hover .depoimento__play-btn.playing {
+  opacity: 0.85;
+  pointer-events: auto;
+}
+
+.depoimento__play-btn svg {
+  margin-left: 2px;
+}
+
+.depoimento__pause-icon {
+  margin-left: 0;
+}
+
+
+
+.depoimento__content {
+  padding-left: clamp(24px, 4vw, 60px);
+}
+
+.depoimento__content .label {
+  margin-bottom: 16px;
+}
+
+.depoimento__content .section-title {
+  text-align: left;
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  margin-bottom: 16px;
+}
+
+.depoimento__divider {
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, var(--gold), var(--gold-dark));
+  border-radius: 3px;
+  margin-bottom: 32px;
+}
+
+.depoimento__quote {
+  margin: 0 0 32px;
+  padding: 0;
+  border: none;
+  quotes: none;
+}
+
+.depoimento__quote-icon {
+  display: block;
+  color: var(--gold);
+  opacity: 0.5;
+  margin-bottom: 12px;
+}
+
+.depoimento__text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.8vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--gray-800);
+  letter-spacing: -0.01em;
+}
+
+.depoimento__author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.depoimento__author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.depoimento__author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.depoimento__author-name {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--gray-900);
+}
+
+.depoimento__author-role {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 991.98px) {
+  .depoimento__content {
+    padding-left: 0;
+    text-align: center;
+  }
+  .depoimento__content .section-title {
+    text-align: center;
+  }
+  .depoimento__divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .depoimento__author {
+    justify-content: center;
+  }
 }
 
 /* Mobile */

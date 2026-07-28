@@ -484,7 +484,47 @@
     document.head.appendChild(style);
   }
 
-  /* ─── 14. FLOATING CTA VISIBILITY ───────────────── */
+  /* ─── 14. DEPOIMENTO VIDEO ────────────────────────── */
+
+  function initDepoimentoVideo() {
+    const wrapper = document.querySelector('.depoimento__video-wrapper');
+    if (!wrapper) return;
+    const video = wrapper.querySelector('.depoimento__video');
+    const btn = wrapper.querySelector('.depoimento__play-btn');
+    const playIcon = wrapper.querySelector('.depoimento__play-icon');
+    const pauseIcon = wrapper.querySelector('.depoimento__pause-icon');
+    const overlay = wrapper.querySelector('.depoimento__video-overlay');
+    if (!video || !btn) return;
+
+    // Click outside button toggles too
+    wrapper.addEventListener('click', toggle);
+    btn.addEventListener('click', e => { e.stopPropagation(); toggle(); });
+
+    video.addEventListener('ended', () => {
+      btn.classList.remove('playing');
+      if (playIcon) playIcon.style.display = '';
+      if (pauseIcon) pauseIcon.style.display = 'none';
+      if (overlay) overlay.style.opacity = '1';
+    });
+
+    function toggle() {
+      if (video.paused || video.ended) {
+        video.play();
+        btn.classList.add('playing');
+        if (playIcon) playIcon.style.display = 'none';
+        if (pauseIcon) pauseIcon.style.display = '';
+        if (overlay) overlay.style.opacity = '0';
+      } else {
+        video.pause();
+        btn.classList.remove('playing');
+        if (playIcon) playIcon.style.display = '';
+        if (pauseIcon) pauseIcon.style.display = 'none';
+        if (overlay) overlay.style.opacity = '1';
+      }
+    }
+  }
+
+  /* ─── 15. FLOATING CTA VISIBILITY ───────────────── */
 
   function initFabCta() {
     const fab     = document.getElementById('fabCta');
@@ -524,6 +564,7 @@
     initCounters();
     initPhoneMask();
     initForm();
+    initDepoimentoVideo();
     initFabCta();
   });
 
