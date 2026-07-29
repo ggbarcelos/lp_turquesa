@@ -1403,7 +1403,12 @@ button {
   aspect-ratio: 1/1;
   box-shadow: 0 15px 45px rgba(0,0,0,0.4);
   border: 1px solid rgba(234, 208, 184, 0.1);
-  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.2, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.2, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.2, 1, 0.3, 1),
+              border-color 0.5s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 .galeria__item {
@@ -1461,6 +1466,12 @@ button {
 .galeria__item-wrapper:hover .galeria__item-title {
   transform: translateY(0);
   opacity: 1;
+}
+
+.row.animated .galeria__item-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--i, 0) * 0.1s + 0.1s);
 }
 
 

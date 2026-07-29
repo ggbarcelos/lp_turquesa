@@ -72,12 +72,19 @@
 
   /* ─── 3. ASSIGN RANDOM IMAGES TO SECTIONS ────────── */
 
+  const FOTOS_IMAGES = [
+    'img/fotos/Luxury_beauty_salon_photograph_2K_202607131231.jpeg',
+    'img/fotos/RETIRE_O_LED_2K_202606011224.jpeg',
+    'img/fotos/Transform_this_interior_render_into_202605291954.jpeg',
+    'img/fotos/Transform_this_interior_render_into_202606011225.jpeg',
+    'img/fotos/Transform_this_interior_render_into_202606011226.jpeg',
+    'img/fotos/Transform_this_interior_render_into_202606011322.jpeg',
+    'img/fotos/Transform_this_interior_render_into_202606011325.jpeg',
+  ];
+
   function initImages() {
     const pool = shuffle(CONCEPT_IMAGES);
     let idx = 0;
-
-    // Hero background
-    // setBg(document.getElementById('heroBg'), pool[idx++]);
 
     // Sobre section image
     setBg(document.getElementById('sobreImg'), pool[idx++]);
@@ -85,13 +92,17 @@
     // Mercado background
     setBg(document.getElementById('mercadoBg'), pool[idx++]);
 
-    // Gallery – Luxury Grid
+    // Gallery – Luxury Grid (6 random non-repeating photos from img/fotos/)
     const gridItems = document.querySelectorAll('.galeria__item');
     if (gridItems.length) {
+      const fotosPool = shuffle(FOTOS_IMAGES);
       gridItems.forEach((item, i) => {
-        const src = CONCEPT_IMAGES[i];
+        const src = fotosPool[i % fotosPool.length];
         item.style.backgroundImage = `url('${encodePath(src)}')`;
         item.dataset.src = src;
+
+        const wrapper = item.closest('.galeria__item-wrapper');
+        if (wrapper) wrapper.style.setProperty('--i', i);
 
         item.addEventListener('click', () => {
           openLightbox(src);
