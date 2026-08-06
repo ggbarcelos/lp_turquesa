@@ -38,7 +38,6 @@
   <link rel="preload" as="image" href="img/img_hero.avif" fetchpriority="high" media="(min-width: 768px)">
   <link rel="preload" as="image" href="img/img_hero-mobile.avif" fetchpriority="high" media="(max-width: 767.98px)">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/montserrat.woff2" fetchpriority="high">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/playfair-display.woff2">
   <style>
     @font-face{font-family:'Montserrat';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2')}
     @font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/playfair-display.woff2') format('woff2')}
@@ -49,8 +48,8 @@
   <link rel="preload" as="style" href="css/style.min.css?v=6" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="css/style.min.css?v=6"></noscript>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.fetchPriority='low';j.src="https://server.turquesabemestar.com.br/atxdwzsvu.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','cbux3x=HBJOPSMpVUE4RUoyLTMoUgNLQVRGQhwaSAIGCAYRHQcUFBYXEhcMFQdYEBUaShoG');</script>
+  <!-- Google Tag Manager (carregamento adiado: imediato na interação ou fallback ~3,5s) -->
+  <script>(function(w,d,s,l,i){var fired=false;function load(){if(fired)return;fired=true;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.fetchPriority='low';j.src="https://server.turquesabemestar.com.br/atxdwzsvu.js?"+i;f.parentNode.insertBefore(j,f);}['scroll','touchstart','mousedown','keydown','click'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});w.addEventListener('load',function(){w.setTimeout(load,2000);});w.setTimeout(load,3500);})(window,document,'script','dataLayer','cbux3x=HBJOPSMpVUE4RUoyLTMoUgNLQVRGQhwaSAIGCAYRHQcUFBYXEhcMFQdYEBUaShoG');</script>
   <!-- End Google Tag Manager -->
 </head>
 <body>
