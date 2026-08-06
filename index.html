@@ -34,14 +34,23 @@
   <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/favicon-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="img/favicon/favicon-512x512.png">
   <meta name="theme-color" content="#0D3F40">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="preload" as="image" href="img/img_hero.avif" fetchpriority="high" media="(min-width: 768px)">
+  <link rel="preload" as="image" href="img/img_hero-mobile.avif" fetchpriority="high" media="(max-width: 767.98px)">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/montserrat.woff2" fetchpriority="high">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/playfair-display.woff2">
+  <style>
+    @font-face{font-family:'Montserrat';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2')}
+    @font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/playfair-display.woff2') format('woff2')}
+  </style>
+  <style>
+    :root{--green:#0D3F40;--green-dark:#082829;--green-deep:#051a1b;--green-light:#1a5e5f;--green-pale:#f0f7f7;--green-glow:rgba(13,63,64,0.3);--gold:#EAD0B8;--gold-dark:#D8B29B;--gold-light:#F5E6D8;--white:#FFFFFF;--gray-50:#F0F4F4;--gray-100:#E1E8E8;--gray-200:#D2DCDC;--gray-300:#B4C3C3;--gray-400:#829696;--gray-500:#5A7373;--gray-600:#3C5555;--gray-700:#283F40;--gray-800:#1A2E2F;--gray-900:#081A1B;--gradient:linear-gradient(135deg,var(--green-deep),var(--green),var(--green-light));--gradient-dark:linear-gradient(150deg,var(--green-deep) 0%,var(--green-dark) 50%,var(--green) 100%);--gradient-card:linear-gradient(135deg,var(--green),var(--green-light));--gradient-gold:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 50%,var(--gold-light) 100%);--shadow-sm:0 1px 3px rgba(0,0,0,0.07),0 1px 2px rgba(0,0,0,0.04);--shadow-md:0 4px 20px rgba(0,0,0,0.09),0 2px 8px rgba(0,0,0,0.05);--shadow-lg:0 20px 60px rgba(0,0,0,0.14),0 8px 24px rgba(0,0,0,0.08);--shadow-xl:0 32px 80px rgba(0,0,0,0.20);--shadow-green:0 8px 32px rgba(13,63,64,0.25);--shadow-gold:0 8px 32px rgba(216,178,155,0.25);--shadow-turquesa:0 8px 32px rgba(13,63,64,0.15);--turquesa:var(--green);--turquesa-dark:var(--green-dark);--turquesa-deep:var(--green-deep);--turquesa-light:var(--green-light);--turquesa-pale:var(--green-pale);--radius-xs:6px;--radius-sm:10px;--radius-md:16px;--radius-lg:24px;--radius-xl:32px;--radius-full:9999px;--font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--font-serif:'Playfair Display',serif;--ease-out:cubic-bezier(0.22,1,0.36,1);--ease-in-out:cubic-bezier(0.4,0,0.2,1);--transition:0.3s var(--ease-in-out);--transition-slow:0.6s var(--ease-out);--container:1200px;--section-py:clamp(72px,10vw,120px)}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}body{font-family:var(--font-sans);color:var(--gray-800);background:var(--white);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}img{max-width:100%;height:auto;display:block}a{color:inherit;text-decoration:none;transition:color var(--transition)}ul,ol{list-style:none}button{font-family:inherit;cursor:pointer;border:none;background:none}.highlight-gold{background:linear-gradient(135deg,#c4956a 0%,#ddb894 50%,#e8c9aa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent !important;font-weight:700;letter-spacing:0.02em;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.15))}.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 clamp(20px,5vw,48px)}.section-header{text-align:center;margin-bottom:clamp(40px,6vw,64px)}.section-title{font-family:var(--font-serif);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;line-height:1.2;color:var(--gray-900);margin-bottom:20px;letter-spacing:-0.01em}.section-title--white{color:var(--white)}.section-subtitle{font-family:var(--font-sans);font-size:clamp(0.95rem,2vw,1.05rem);color:var(--gray-500);max-width:580px;margin:0 auto;line-height:1.7}.section-subtitle--white{color:rgba(255,255,255,0.8)}.label{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-dark);background:var(--green-pale);padding:5px 16px;border-radius:var(--radius-full);margin-bottom:18px}.label--gold{color:#4a3728;background:var(--gradient-gold);border:1px solid rgba(216,178,155,0.4);box-shadow:0 4px 12px rgba(216,178,155,0.2);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:0.72rem}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-sans);font-weight:600;font-size:0.95rem;line-height:1;border-radius:var(--radius-full);border:2px solid transparent;cursor:pointer;text-decoration:none;transition:all var(--transition);white-space:nowrap;position:relative;overflow:hidden}.btn svg{width:18px;height:18px;flex-shrink:0;transition:transform var(--transition)}.btn:hover svg{transform:translateX(3px)}[data-animate],[data-animate-hero]{opacity:0;transform:translateY(28px);transition:opacity 0.75s var(--ease-out),transform 0.75s var(--ease-out)}[data-animate-hero]:nth-child(2){transition-delay:0.15s}[data-animate-hero]:nth-child(3){transition-delay:0.30s}[data-animate-hero]:nth-child(4){transition-delay:0.45s}[data-animate].animated,[data-animate-hero].animated{opacity:1;transform:translateY(0)}.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all var(--transition)}.header.scrolled{background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 2px 24px rgba(0,0,0,0.08);padding:14px 0}.header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px}.header__logo img{height:64px;width:auto;transition:filter var(--transition),opacity var(--transition)}.header:not(.scrolled) .header__logo img{filter:brightness(0) invert(1)}.header__nav{align-items:center;gap:12px}.header__nav .nav-link{font-family:var(--font-sans);font-size:0.875rem;font-weight:600;color:var(--gray-800) !important;transition:all var(--transition);letter-spacing:0.02em;padding:0.5rem 0.75rem;border-radius:var(--radius-sm)}.header:not(.scrolled) .header__nav .nav-link{color:rgba(255,255,255,0.9) !important}.header__nav .nav-link:hover{color:var(--gold-dark) !important;transform:translateY(-1px)}.header:not(.scrolled) .header__nav .nav-link:hover{color:var(--gold-light) !important}.header__menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;outline:none !important}.header__menu-btn:focus{box-shadow:none !important}.header__menu-btn span{display:block;width:22px;height:2px;border-radius:2px;background:var(--white);transition:all var(--transition)}.header.scrolled .header__menu-btn span{background:var(--gold-dark)}#headerNav.collapsing,#headerNav.show{position:fixed;top:72px;left:0;right:0;background:var(--green-deep);backdrop-filter:blur(16px);padding:24px;box-shadow:0 10px 40px rgba(0,0,0,0.5);z-index:999;border-bottom:1px solid rgba(234,208,184,0.1)}#headerNav.show .header__nav{flex-direction:column;align-items:center;gap:16px}#headerNav.show .header__nav .nav-link{font-size:1.05rem;font-weight:600;color:var(--white) !important;letter-spacing:0.05em;text-transform:uppercase;text-align:center;padding:0.6rem 1rem}#headerNav.show .header__nav .nav-link:hover{color:var(--gold) !important}.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding-bottom:60px;overflow:hidden}.hero__bg{position:absolute;inset:0;background-color:#0D3F40;background-image:radial-gradient(circle at 15% 25%,rgba(255,215,0,0.04) 0%,transparent 45%),radial-gradient(circle at 85% 75%,rgba(13,63,64,0.08) 0%,transparent 50%);background-size:cover;background-position:center;background-repeat:no-repeat;will-change:transform;animation:slowZoom 24s ease-in-out infinite alternate}@keyframes slowZoom{from{transform:scale(1.0)}to{transform:scale(1.08)}}.hero__overlay{position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(13,63,64,0.6) 0%,rgba(13,63,64,0.95) 100%)}.hero__content{position:relative;z-index:2;width:100%;padding-top:180px;padding-bottom:60px;text-align:left}.hero__text{max-width:680px}@media (max-width:991.98px){.hero__text{margin-bottom:40px}.hero{text-align:center;padding-top:10px}.hero__content{padding-top:80px}.hero__stats{justify-content:center !important}.hero__divider{margin-left:auto;margin-right:auto}.hero__cta-wrap{text-align:center}.hero__visual{min-height:340px}.hero__image-card{position:relative;inset:auto;height:340px;border-radius:16px}.hero__visual::after{border-radius:16px}}.hero__badge{margin-bottom:24px}.hero__headline{font-family:var(--font-serif);margin-bottom:0;text-shadow:0 4px 32px rgba(0,0,0,0.4)}.hero__headline-pre{display:block;font-size:clamp(1rem,2vw,1.4rem);font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:4px}.hero__headline-main{display:block;font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-0.02em;margin-bottom:6px;filter:drop-shadow(0 4px 16px rgba(216,178,155,0.35))}.hero__headline-post{display:block;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:300;color:rgba(255,255,255,0.7);letter-spacing:0.03em}.hero__divider{display:flex;align-items:center;margin:28px 0;max-width:320px}.hero__divider span{display:block;width:60px;height:2px;background:linear-gradient(to right,var(--gold),transparent);border-radius:2px}.hero__stats{display:flex;align-items:center;gap:24px;margin-bottom:36px}.hero__stat{display:flex;flex-direction:column;gap:2px}.hero__stat-value{font-family:var(--font-sans);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1;color:var(--gold) !important;-webkit-text-fill-color:var(--gold) !important;text-shadow:0 0 24px rgba(216,178,155,0.35)}.hero__stat-label{font-size:clamp(0.7rem,1.2vw,0.82rem);font-weight:500;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.08em}.hero__stat-divider{width:1px;height:40px;background:rgba(255,255,255,0.15)}.hero__cta-wrap{margin-top:8px}.hero__cta-wrap .btn--hero{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#4a3728;font-weight:700;font-size:0.95rem;padding:16px 36px;border-radius:50px;border:none;transition:all 0.3s ease;box-shadow:0 8px 30px rgba(216,178,155,0.35)}.hero__cta-wrap .btn--hero:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(216,178,155,0.5);background:#e8d5c0}.hero__cta-wrap .btn--hero svg{width:18px;height:18px}.hero__visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:600px;height:100%}.hero__image-card{position:absolute;inset:0;background-image:image-set(url('img/img_hero.avif') type('image/avif') 1x,url('img/img_hero.webp') type('image/webp') 1x);background-size:cover;background-position:60% center;background-repeat:no-repeat;border-radius:12px;box-shadow:0 0 0 1px rgba(216,178,155,0.12)}.hero__image-accent{position:absolute;bottom:24px;left:24px;width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);z-index:2;opacity:0.7}.hero__visual::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,63,64,0.35) 0%,transparent 40%);border-radius:12px;pointer-events:none;z-index:1}@media (max-width:767.98px){.hero__visual .hero__image-card{background-image:image-set(url('img/img_hero-mobile.avif') type('image/avif') 1x,url('img/img_hero-mobile.webp') type('image/webp') 1x)}}.hero__headline{font-family:var(--font-sans);font-size:clamp(2.1rem,5.5vw,3.8rem);font-weight:800;line-height:1.2;color:var(--white);margin-bottom:22px;text-shadow:0 2px 24px rgba(0,0,0,0.3);letter-spacing:-0.02em}.fab-cta{position:fixed;bottom:28px;right:28px;z-index:900;display:inline-flex;align-items:center;gap:8px;padding:11px 20px 11px 14px;border-radius:var(--radius-full);background:linear-gradient(110deg,var(--gold-dark) 0%,var(--gold) 40%,var(--gold-dark) 70%,var(--gold) 100%);background-size:220% 100%;animation:fabSlideIn 0.7s var(--ease-out) both,fabShimmer 3.2s linear 1.5s infinite;color:#4a3728;font-family:var(--font-sans);font-size:0.82rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;white-space:nowrap;box-shadow:0 0 0 0 rgba(216,178,155,0),0 6px 24px rgba(216,178,155,0.4),0 2px 6px rgba(0,0,0,0.22);border:1.5px solid rgba(255,255,255,0.4);transform:translateY(0) scale(1);opacity:1;transition:transform 0.35s var(--ease-out),opacity 0.35s var(--ease-out),box-shadow 0.3s var(--ease-in-out);overflow:visible}.fab-cta.fab-cta--hidden{opacity:0;pointer-events:none;transform:translateY(20px) scale(0.9)}.fab-cta__label{font-size:0.82rem;font-weight:800;letter-spacing:0.05em}.fab-cta__icon{width:17px;height:17px;flex-shrink:0;filter:drop-shadow(0 1px 4px rgba(0,0,0,0.3));animation:fabStar 1.8s ease-in-out 0.8s infinite alternate}.fab-cta__icon:not(.fab-cta__icon--star){display:none}.fab-cta__icon--star{display:block;color:#fff}.fab-cta__arrow{width:14px;height:14px;flex-shrink:0;opacity:0.9;transition:transform 0.3s var(--ease-out)}@keyframes fabSlideIn{from{opacity:0;transform:translateY(52px) scale(0.84)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes fabShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}@keyframes fabStar{from{transform:scale(1) rotate(-5deg);filter:drop-shadow(0 1px 4px rgba(0,0,0,0.3))}to{transform:scale(1.22) rotate(8deg);filter:drop-shadow(0 2px 8px rgba(255,255,255,0.5))}}.row{--bs-gutter-x:1.5rem;--bs-gutter-y:0;display:flex;flex-wrap:wrap;margin-top:calc(-1 * var(--bs-gutter-y));margin-right:calc(-0.5 * var(--bs-gutter-x));margin-left:calc(-0.5 * var(--bs-gutter-x))}.row > *{box-sizing:border-box;flex-shrink:0;width:100%;max-width:100%;padding-right:calc(var(--bs-gutter-x) * 0.5);padding-left:calc(var(--bs-gutter-x) * 0.5);margin-top:var(--bs-gutter-y)}.col-sm-6{flex:0 0 auto}@media (min-width:576px){.col-sm-6{width:50%}}.col-md-6,.col-md-4{flex:0 0 auto}@media (min-width:768px){.col-md-6{width:50%}.col-md-4{width:33.333333%}}.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7{flex:0 0 auto}@media (min-width:992px){.col-lg-3{width:25%}.col-lg-4{width:33.333333%}.col-lg-5{width:41.666667%}.col-lg-6{width:50%}.col-lg-7{width:58.333333%}}.g-3{--bs-gutter-x:1rem;--bs-gutter-y:1rem}.g-4{--bs-gutter-x:1.5rem;--bs-gutter-y:1.5rem}.gy-5{--bs-gutter-y:3rem}@media (min-width:992px){.gx-lg-5{--bs-gutter-x:3rem}}.align-items-center{align-items:center !important}.justify-content-center{justify-content:center !important}.h-100{height:100% !important}.ms-auto{margin-left:auto !important}.m-0{margin:0 !important}.mb-4{margin-bottom:1.5rem !important}.p-0{padding:0 !important}.border-0{border:0 !important}.shadow-none{box-shadow:none !important}@media (min-width:992px){.mb-lg-0{margin-bottom:0 !important}}@media (min-width:1400px){.gap-xxl-4{gap:1.5rem !important}}.navbar{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.navbar-brand{padding-top:0.3125rem;padding-bottom:0.3125rem;margin-right:1rem}.navbar-toggler{padding:0.25rem 0.75rem;font-size:1.25rem;line-height:1;background-color:transparent;border:0;border-radius:0.25rem}.navbar-nav{display:flex;flex-direction:column;padding-left:0;margin-bottom:0;list-style:none}.nav-link{display:block;padding:0.5rem 1rem}.nav-item{list-style:none}.navbar-collapse{flex-basis:100%;flex-grow:1;align-items:center}.collapse:not(.show){display:none}@media (min-width:768px){.navbar-expand-md{flex-wrap:nowrap;justify-content:flex-start}.navbar-expand-md .navbar-nav{flex-direction:row}.navbar-expand-md .navbar-collapse{display:flex !important;flex-basis:auto}.navbar-expand-md .navbar-toggler{display:none}}
+  </style>
+  <link rel="preload" as="style" href="css/style.min.css?v=6" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/style.min.css?v=6"></noscript>
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://server.turquesabemestar.com.br/atxdwzsvu.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','cbux3x=HBJOPSMpVUE4RUoyLTMoUgNLQVRGQhwaSAIGCAYRHQcUFBYXEhcMFQdYEBUaShoG');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.fetchPriority='low';j.src="https://server.turquesabemestar.com.br/atxdwzsvu.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','cbux3x=HBJOPSMpVUE4RUoyLTMoUgNLQVRGQhwaSAIGCAYRHQcUFBYXEhcMFQdYEBUaShoG');</script>
   <!-- End Google Tag Manager -->
 </head>
 <body>
@@ -51,7 +60,7 @@
     <div class="container">
       <nav class="header__inner navbar navbar-expand-md p-0">
         <a href="#" class="header__logo navbar-brand p-0 m-0" aria-label="Turquesa – Início">
-          <img src="img/logo.png" alt="Turquesa Salão de Beleza" height="64">
+          <img src="img/logo.webp" alt="Turquesa Salão de Beleza" width="93" height="64">
         </a>
         <button class="header__menu-btn navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="Abrir menu">
           <span></span><span></span><span></span>
@@ -106,18 +115,24 @@
         </div>
         <div class="col-lg-5 hero__visual" data-animate-hero>
           <div class="hero__image-card" role="img" aria-label="Ambiente Turquesa"></div>
-          <span class="hero__tag hero__tag--top">+ 12 Anos</span>
-          <span class="hero__tag hero__tag--bottom">+ 80 Unidades</span>
           <div class="hero__image-accent"></div>
         </div>
       </div>
     </div>
   </section>
 
+  <script>
+    (function () {
+      document.querySelectorAll('[data-animate-hero]').forEach(function (el) {
+        el.classList.add('animated');
+      });
+    })();
+  </script>
+
   <!-- ===== FORMULÁRIO DE CONVERSÃO ===== -->
   <section class="contato" id="contato" aria-label="Formulário de contato">
     <div class="contato__bg">
-      <img src="img/conceito/WhatsApp Image 2023-06-02 at 10.34.54.jpeg" alt="Ambiente de luxo Turquesa" class="contato__bg-img">
+      <img src="img/contato-bg.webp" alt="Ambiente de luxo Turquesa" class="contato__bg-img" width="900" height="1200" loading="lazy" decoding="async">
     </div>
     <div class="contato__overlay"></div>
     <div class="container">
@@ -219,7 +234,7 @@
           <span class="label">Nossa Rede</span>
           <h2 class="section-title">A Franquia que <span class="highlight-gold">Transforma o Mercado</span></h2>
           <p class="sobre__text">
-            Há mais de 12 anos, a Turquesa desenvolve um modelo de franquia que une serviços de alta recorrência, experiência de marca, gestão estruturada e inovação comercial. Mais do que uma rede de salões, somos uma plataforma de negócios em beleza, com formatos adaptáveis, modulares, suporte próximo e novas oportunidades de receita para o franqueado.
+            Com mais de 12 anos de história, a Turquesa consolidou-se como uma referência em gestão e rentabilidade no setor de beleza. Nosso modelo foi desenhado para oferecer luxo e acessibilidade, garantindo uma operação eficiente para o franqueado.
           </p>
           <blockquote class="sobre__highlight">
             "Não vendemos apenas serviços, entregamos um negócio de alta performance."
@@ -394,7 +409,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C9.5 2 7.5 4 7.5 6.5V8H5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-2.5V6.5C16.5 4 14.5 2 12 2z"/><path d="M9 11v2m6-2v2"/></svg>
           </div>
           <h3 class="modelo-card__name">Turquesa <strong>Nails</strong></h3>
-          <p class="modelo-card__desc">Esmalteria especializada, com estrutura mais enxuta, serviços padronizados e forte recorrência.</p>
+          <p class="modelo-card__desc">Esmalteria especializada, com serviços padronizados de qualidade, alto giro e foco em recorrência.</p>
           <ul class="modelo-card__features" aria-label="Serviços Turquesa Nails">
             <li><span aria-hidden="true">✦</span> Manicure e pedicure</li>
             <li><span aria-hidden="true">✦</span> Esmaltação em gel</li>
@@ -403,7 +418,7 @@
           </ul>
           <div class="modelo-card__ideal">
             <span class="modelo-card__ideal-label">Este modelo é para você se:</span>
-            <p>Busca um negócio especializado, com operação mais concentrada e gestão focada em produtividade e recorrência.</p>
+            <p>Busca um negócio enxuto, especializado e com alto potencial de escala.</p>
           </div>
           <div class="modelo-card__invest">
             <span class="modelo-card__invest-label">Investimento</span>
@@ -421,7 +436,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M17 3s2 1 2 5"/><path d="M7 3S5 4 5 8"/></svg>
           </div>
           <h3 class="modelo-card__name">Turquesa <strong>Beauty</strong></h3>
-          <p class="modelo-card__desc">Unidade multisserviços que reúne diferentes soluções de beleza e bem-estar em um único espaço.</p>
+          <p class="modelo-card__desc">Salão completo, com foco em recorrência, cross-sell e aumento de ticket por mix de serviços.</p>
           <ul class="modelo-card__features" aria-label="Serviços Turquesa Beauty">
             <li><span aria-hidden="true">✦</span> Unhas</li>
             <li><span aria-hidden="true">✦</span> Cabelo</li>
@@ -430,7 +445,7 @@
           </ul>
           <div class="modelo-card__ideal">
             <span class="modelo-card__ideal-label">Este modelo é para você se:</span>
-            <p>Busca uma operação mais completa, com diversificação de faturamento e maior variedade de oportunidades de consumo por cliente.</p>
+            <p>Deseja oferecer soluções completas de beleza e bem-estar em um único espaço.</p>
           </div>
           <div class="modelo-card__invest">
             <span class="modelo-card__invest-label">Investimento</span>
@@ -457,7 +472,7 @@
           </ul>
           <div class="modelo-card__ideal">
             <span class="modelo-card__ideal-label">Este modelo é para você se:</span>
-            <p>Busca uma operação ágil, especializada e direcionada a um serviço de consumo frequente.</p>
+            <p>Busca um modelo padronizado, de alta recorrência e pensado para fidelização.</p>
           </div>
           <div class="modelo-card__invest">
             <span class="modelo-card__invest-label">Investimento</span>
@@ -479,7 +494,7 @@
       <div class="section-header" data-animate>
         <span class="label">Por que Turquesa?</span>
         <h2 class="section-title">Diferenciais que constroem<br>o seu negócio</h2>
-        <p class="section-subtitle">Você não recebe apenas uma marca e um manual. Recebe um caminho estruturado para escolher o ponto, implantar, inaugurar, aprender a gerir e desenvolver novas frentes comerciais.</p>
+        <p class="section-subtitle">Tudo que você precisa para abrir, operar e crescer com segurança e confiança.</p>
       </div>
       <div class="row g-4" data-animate>
         <div class="col-md-6 col-lg-4">
@@ -487,12 +502,8 @@
             <div class="diferenciais__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
             </div>
-            <h3>Jornada com etapas definidas</h3>
-            <p>Implantação que começa desde o primeiro dia.<br>Reunião com a diretoria em até 48 horas, kickoff técnico entre o 7º e o 10º dia e início da busca do ponto e da formação gerencial a partir do 10º dia.</p>
-            <span class="diferenciais__highlight">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-              48h para o primeiro alinhamento.
-            </span>
+            <h3>Produtos de linha própria Turquesa</h3>
+            <p>Linha exclusiva com formulações premium que aumentam sua margem e fidelizam clientes.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -500,8 +511,8 @@
             <div class="diferenciais__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <h3>Escolha do ponto e implantação física</h3>
-            <p>Ponto e obra com validação técnica.<br>Apoio na prospecção e negociação do ponto, análise técnica antes da contratação do imóvel e acompanhamento do cronograma de obra e das adequações do projeto.</p>
+            <h3>Alta rentabilidade</h3>
+            <p>Modelo de negócio com margens acima da média do setor e payback acelerado.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -509,8 +520,8 @@
             <div class="diferenciais__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
             </div>
-            <h3>Formação empresarial</h3>
-            <p>Preparação para dirigir a unidade.<br>Academia Turquesa com 26 aulas organizadas em 6 módulos: cultura, marketing, gestão legal, finanças, pessoas e mentalidade de dono.</p>
+            <h3>Espaço projetado para você vender</h3>
+            <p>Projeto arquitetônico exclusivo que guia o cliente naturalmente ao consumo e fidelização.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -518,8 +529,8 @@
             <div class="diferenciais__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             </div>
-            <h3>Estratégia de inauguração</h3>
-            <p>TurqueStart: plano de lançamento da unidade.<br>Enxoval físico e digital, ativação de fachada, comunicação local, campanha geolocalizada, videomaker, produção de conteúdo, presença de influencer local e apoio operacional na inauguração.</p>
+            <h3>Suporte completo para você</h3>
+            <p>Da implantação ao crescimento: suporte técnico, operacional e de marketing sempre disponível.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -527,8 +538,8 @@
             <div class="diferenciais__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
             </div>
-            <h3>Suporte que acompanha a evolução da unidade.</h3>
-            <p>O acompanhamento é intensificado durante a implantação, a inauguração e os primeiros passos da operação, e continua ao longo da jornada do franqueado, com suporte técnico, operacional e de marketing.</p>
+            <h3>Universidade Turquesa</h3>
+            <p>Plataforma de treinamento EAD com trilhas completas para gestores e equipe técnica.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -536,8 +547,8 @@
             <div class="diferenciais__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <h3>Inovação que amplia as oportunidades de receita.</h3>
-            <p>A Turquesa desenvolve continuamente novas iniciativas comerciais para as unidades, como clubes e assinaturas, parcerias locais, campanhas sazonais e soluções corporativas, criando novas possibilidades de venda e recorrência para o franqueado.</p>
+            <h3>Sustentabilidade (ESG)</h3>
+            <p>Compromisso com práticas responsáveis que valorizam sua marca perante o consumidor moderno.</p>
           </div>
         </div>
       </div>
@@ -588,9 +599,9 @@
       <div class="row g-4" data-animate>
         <!-- Sandja -->
         <div class="col-sm-6 col-lg-3">
-          <div class="depoimentos__card" data-video-local="videos/IMG_2348.MP4" data-video-poster="img/img_hero.jpeg">
+          <div class="depoimentos__card" data-video-local="videos/IMG_2348-720p.mp4" data-video-poster="img/img_hero-thumb.webp">
             <div class="depoimentos__thumb">
-              <img src="img/img_hero.jpeg" alt="Sandja" class="depoimentos__thumb-img" loading="lazy">
+              <img src="img/img_hero-thumb.webp" alt="Sandja" class="depoimentos__thumb-img" loading="lazy" decoding="async" width="800" height="800" fetchpriority="low">
               <div class="depoimentos__thumb-overlay"></div>
               <button class="depoimentos__play" type="button" aria-label="Reproduzir depoimento de Sandja">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
@@ -607,7 +618,7 @@
         <div class="col-sm-6 col-lg-3">
           <div class="depoimentos__card" data-video-youtube="SCEfpdaiWd4">
             <div class="depoimentos__thumb">
-              <img src="https://img.youtube.com/vi/SCEfpdaiWd4/maxresdefault.jpg" alt="Nathália" class="depoimentos__thumb-img" loading="lazy">
+              <img src="https://img.youtube.com/vi/SCEfpdaiWd4/maxresdefault.jpg" alt="Nathália" class="depoimentos__thumb-img" loading="lazy" decoding="async" width="1280" height="720" fetchpriority="low">
               <div class="depoimentos__thumb-overlay"></div>
               <button class="depoimentos__play" type="button" aria-label="Reproduzir depoimento de Nathália">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
@@ -624,7 +635,7 @@
         <div class="col-sm-6 col-lg-3">
           <div class="depoimentos__card" data-video-youtube="47lnzFF1fWg">
             <div class="depoimentos__thumb">
-              <img src="https://img.youtube.com/vi/47lnzFF1fWg/maxresdefault.jpg" alt="Andreza e Bia" class="depoimentos__thumb-img" loading="lazy">
+              <img src="https://img.youtube.com/vi/47lnzFF1fWg/maxresdefault.jpg" alt="Andreza e Bia" class="depoimentos__thumb-img" loading="lazy" decoding="async" width="1280" height="720" fetchpriority="low">
               <div class="depoimentos__thumb-overlay"></div>
               <button class="depoimentos__play" type="button" aria-label="Reproduzir depoimento de Andreza e Bia">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
@@ -641,7 +652,7 @@
         <div class="col-sm-6 col-lg-3">
           <div class="depoimentos__card" data-video-youtube="eLTpGLxgNZ4">
             <div class="depoimentos__thumb">
-              <img src="https://img.youtube.com/vi/eLTpGLxgNZ4/maxresdefault.jpg" alt="Marjorie" class="depoimentos__thumb-img" loading="lazy">
+              <img src="https://img.youtube.com/vi/eLTpGLxgNZ4/maxresdefault.jpg" alt="Marjorie" class="depoimentos__thumb-img" loading="lazy" decoding="async" width="1280" height="720" fetchpriority="low">
               <div class="depoimentos__thumb-overlay"></div>
               <button class="depoimentos__play" type="button" aria-label="Reproduzir depoimento de Marjorie">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
@@ -675,7 +686,7 @@
       <div class="section-header" data-animate>
         <span class="label label--gold">Nossa Atmosfera</span>
         <h2 class="section-title section-title--white">A beleza que inspira o sucesso</h2>
-        <p class="section-subtitle section-subtitle--white">Ambientes que transformam beleza em experiência.<br>Espaços contemporâneos, acolhedores e funcionais, pensados para valorizar cada atendimento e tornar o cuidado com a beleza acessível a mais pessoas.</p>
+        <p class="section-subtitle section-subtitle--white">Conheça os espaços projetados para oferecer uma experiência de luxo inigualável.</p>
       </div>
 
       <div class="row g-3" data-animate>
@@ -738,7 +749,7 @@
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <img src="img/logo.png" alt="Turquesa Franquias" class="footer__logo" width="160" height="auto">
+          <img src="img/logo.webp" alt="Turquesa Franquias" class="footer__logo" width="160" height="110">
           <p class="footer__tagline">A maior rede de franquias de beleza e estética do Brasil.</p>
         </div>
         
@@ -779,12 +790,6 @@
     </svg>
   </a>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- EmailJS SDK -->
-  <script src="js/email.min.js"></script>
-  <script>emailjs.init({ publicKey: 'xAtMa5JUwZUvcGnXw' });</script>
-
-  <script src="js/main.js?v=4"></script>
+  <script src="js/main.js?v=6" defer></script>
 </body>
 </html>

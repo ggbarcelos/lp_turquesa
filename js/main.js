@@ -8,35 +8,34 @@
 
   /* ─── 1. CONCEPT IMAGE POOL ─────────────────────── */
   const CONCEPT_IMAGES = [
-    'img/conceito/HAIR.jpeg',
-    'img/conceito/NOVA FACHADA 3D.jpg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.30 (1).jpeg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.30.jpeg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.31.jpeg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.32 (3).jpeg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.34 (1).jpeg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.35.jpeg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.36 (1).jpeg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.37.jpeg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.38.57.jpeg',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.38.58.jpeg',
-    'img/conceito/WhatsApp Image 2023-06-02 at 10.34.54.jpeg',
-    'img/conceito/WhatsApp Image 2023-06-02 at 10.34.55.jpeg',
-    'img/conceito/WhatsApp Image 2023-06-02 at 10.34.58.jpeg',
-    'img/conceito/WhatsApp Image 2023-08-26 at 11.17.25 (1).jpeg',
-    'img/conceito/WhatsApp Image 2023-08-26 at 11.17.25.jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.30 (1).jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.30 (2).jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.30.jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.31 (1).jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.31 (2).jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.31.jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.32.jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53 (1).jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53 (2).jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53 (3).jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53.jpeg',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.54.jpeg',
+    'img/conceito/HAIR.webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.30 (1).webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.30.webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.31.webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.32 (3).webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.34 (1).webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.35.webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.36 (1).webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.37.webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.38.57.webp',
+    'img/conceito/WhatsApp Image 2023-05-30 at 10.38.58.webp',
+    'img/conceito/WhatsApp Image 2023-06-02 at 10.34.54.webp',
+    'img/conceito/WhatsApp Image 2023-06-02 at 10.34.55.webp',
+    'img/conceito/WhatsApp Image 2023-06-02 at 10.34.58.webp',
+    'img/conceito/WhatsApp Image 2023-08-26 at 11.17.25 (1).webp',
+    'img/conceito/WhatsApp Image 2023-08-26 at 11.17.25.webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.30 (1).webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.30 (2).webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.30.webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.31 (1).webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.31 (2).webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.31.webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.32.webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53 (1).webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53 (2).webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53 (3).webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53.webp',
+    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.54.webp',
   ];
 
   /* ─── 2. UTILITIES ───────────────────────────────── */
@@ -73,24 +72,34 @@
   /* ─── 3. ASSIGN RANDOM IMAGES TO SECTIONS ────────── */
 
   const FOTOS_IMAGES = [
-    'img/fotos/Luxury_beauty_salon_photograph_2K_202607131231.jpeg',
-    'img/fotos/RETIRE_O_LED_2K_202606011224.jpeg',
-    'img/fotos/Transform_this_interior_render_into_202605291954.jpeg',
-    'img/fotos/Transform_this_interior_render_into_202606011225.jpeg',
-    'img/fotos/Transform_this_interior_render_into_202606011226.jpeg',
-    'img/fotos/Transform_this_interior_render_into_202606011322.jpeg',
-    'img/fotos/Transform_this_interior_render_into_202606011325.jpeg',
+    'img/fotos/Luxury_beauty_salon_photograph_2K_202607131231.webp',
+    'img/fotos/RETIRE_O_LED_2K_202606011224.webp',
+    'img/fotos/Transform_this_interior_render_into_202605291954.webp',
+    'img/fotos/Transform_this_interior_render_into_202606011225.webp',
+    'img/fotos/Transform_this_interior_render_into_202606011226.webp',
+    'img/fotos/Transform_this_interior_render_into_202606011322.webp',
+    'img/fotos/Transform_this_interior_render_into_202606011325.webp',
   ];
 
   function initImages() {
     const pool = shuffle(CONCEPT_IMAGES);
     let idx = 0;
 
+    const reveal = (el, path) => {
+      if (!el) return;
+      const apply = () => { setBg(el, path); io.disconnect(); };
+      if (!('IntersectionObserver' in window)) { setBg(el, path); return; }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) apply(); });
+      }, { rootMargin: '240px 0px' });
+      io.observe(el);
+    };
+
     // Sobre section image
-    setBg(document.getElementById('sobreImg'), pool[idx++]);
+    reveal(document.getElementById('sobreImg'), pool[idx++]);
 
     // Mercado background
-    setBg(document.getElementById('mercadoBg'), pool[idx++]);
+    reveal(document.getElementById('mercadoBg'), pool[idx++]);
 
     // Gallery – Luxury Grid (6 random non-repeating photos from img/fotos/)
     const gridItems = document.querySelectorAll('.galeria__item');
@@ -98,7 +107,6 @@
       const fotosPool = shuffle(FOTOS_IMAGES);
       gridItems.forEach((item, i) => {
         const src = fotosPool[i % fotosPool.length];
-        item.style.backgroundImage = `url('${encodePath(src)}')`;
         item.dataset.src = src;
 
         const wrapper = item.closest('.galeria__item-wrapper');
@@ -107,6 +115,8 @@
         item.addEventListener('click', () => {
           openLightbox(src);
         });
+
+        reveal(item, src);
       });
     }
   }
@@ -125,17 +135,23 @@
     onScroll(); // run once on load
   }
 
-  /* ─── 5. MOBILE MENU (Bootstrap collapse) ────────── */
+  /* ─── 5. MOBILE MENU (collapse próprio) ──────────── */
 
   function initMobileMenu() {
     const collapseEl = document.getElementById('headerNav');
-    if (!collapseEl) return;
-    const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
+    const toggler = document.querySelector('[data-bs-toggle="collapse"]');
+    if (!collapseEl || !toggler) return;
 
-    // Close collapse on link click (smooth-scroll)
+    toggler.addEventListener('click', () => {
+      const expanded = toggler.getAttribute('aria-expanded') === 'true';
+      collapseEl.classList.toggle('show', !expanded);
+      toggler.setAttribute('aria-expanded', String(!expanded));
+    });
+
     collapseEl.querySelectorAll('.nav-link').forEach(a => {
       a.addEventListener('click', () => {
-        if (collapseEl.classList.contains('show')) bsCollapse.hide();
+        collapseEl.classList.remove('show');
+        toggler.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -143,13 +159,6 @@
   /* ─── 6. SCROLL REVEAL (IntersectionObserver) ────── */
 
   function initScrollReveal() {
-    // Hero elements animate immediately on load
-    setTimeout(() => {
-      document.querySelectorAll('[data-animate-hero]').forEach(el => {
-        el.classList.add('animated');
-      });
-    }, 200);
-
     // Section elements animate on scroll
     const observer = new IntersectionObserver(
       entries => {
@@ -276,6 +285,18 @@
     errEl.classList.remove('visible');
   }
 
+  function loadEmailJs() {
+    return new Promise((resolve, reject) => {
+      if (typeof emailjs !== 'undefined') { resolve(); return; }
+      const s = document.createElement('script');
+      s.src = 'js/email.min.js';
+      s.async = true;
+      s.onload = () => { emailjs.init({ publicKey: 'xAtMa5JUwZUvcGnXw' }); resolve(); };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
   function initForm() {
     const form        = document.getElementById('leadForm');
     const successBox  = document.getElementById('formSuccess');
@@ -345,33 +366,26 @@
 
       if (networkErr) networkErr.style.display = 'none';
 
-      // ── EmailJS (backup independente) ──
-      console.log('📧 EmailJS disponível?', typeof emailjs !== 'undefined');
-      if (typeof emailjs !== 'undefined') {
-        try {
-          console.log('📧 Enviando email via EmailJS...');
-          // Injeta UTMs como hidden inputs pro EmailJS
-          const utms = getUtms();
-          const utmFields = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','fbclid'];
-          utmFields.forEach(param => {
-            if (!form.querySelector(`input[name="${param}"]`)) {
-              const hidden = document.createElement('input');
-              hidden.type = 'hidden';
-              hidden.name = param;
-              hidden.value = utms[param] || '';
-              form.appendChild(hidden);
-            }
-          });
-          console.log('📧 Chamando sendForm com:', { service: 'service_1u29mnn', template: 'template_po7jecd' });
-          const response = await emailjs.sendForm('service_1u29mnn', 'template_po7jecd', form);
-          console.log('✅ EmailJS sucesso:', response);
-        } catch (err) {
-          console.error('❌ EmailJS error completo:', err);
-          console.error('❌ EmailJS status:', err?.status);
-          console.error('❌ EmailJS text:', err?.text);
-        }
-      } else {
-        console.warn('⚠️ EmailJS não está carregado');
+      // ── EmailJS (backup independente, carregado sob demanda) ──
+      try {
+        await loadEmailJs();
+        const utms = getUtms();
+        const utmFields = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','fbclid'];
+        utmFields.forEach(param => {
+          if (!form.querySelector(`input[name="${param}"]`)) {
+            const hidden = document.createElement('input');
+            hidden.type = 'hidden';
+            hidden.name = param;
+            hidden.value = utms[param] || '';
+            form.appendChild(hidden);
+          }
+        });
+        const response = await emailjs.sendForm('service_1u29mnn', 'template_po7jecd', form);
+        console.log('✅ EmailJS sucesso:', response);
+      } catch (err) {
+        console.error('❌ EmailJS error completo:', err);
+        console.error('❌ EmailJS status:', err?.status);
+        console.error('❌ EmailJS text:', err?.text);
       }
 
       // ── Build payload ──
@@ -487,14 +501,6 @@
     });
   }
 
-  /* ─── 13. SPINNER KEYFRAME (injected) ────────────── */
-
-  function injectSpinnerKeyframe() {
-    const style = document.createElement('style');
-    style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-    document.head.appendChild(style);
-  }
-
   /* ─── 14. DEPOIMENTOS LIGHTBOX ────────────────────── */
 
   function initDepoimentos() {
@@ -585,7 +591,6 @@
   /* ─── INIT ────────────────────────────────────────── */
 
   document.addEventListener('DOMContentLoaded', () => {
-    injectSpinnerKeyframe();
     initImages();
     initHeader();
     initMobileMenu();
