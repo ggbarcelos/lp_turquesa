@@ -904,13 +904,19 @@ button {
   stroke: var(--green-dark);
 }
 
+.numeros__figures {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
 .numeros__value {
   display: block;
   font-family: var(--font-sans);
   font-size: clamp(2.75rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1;
-  margin-bottom: 8px;
 }
 
 .numeros__sup {
