@@ -1,0 +1,55 @@
+# =====================================================
+# Turquesa – Cache e compressão (Apache / cPanel)
+# =====================================================
+
+# ---------- Compressão ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# ---------- Cache de navegador ----------
+# Assets versionados (com ?v= ou nome de arquivo único): 1 ano, imutável
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/json "access plus 0 seconds"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Sempre revalidar o HTML (index.html)
+  <FilesMatch "\.(html?)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Estáticos com fingerprint (?v=6): cache longo + revalidação
+  <FilesMatch "\.(css|js|webp|avif|png|jpe?g|svg|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(mp4)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+# ---------- MIME types ----------
+AddType image/avif .avif
+AddType image/webp .webp
+AddType font/woff2 .woff2
+AddType application/javascript .js
+
+# ---------- Segurança básica ----------
+Options -Indexes

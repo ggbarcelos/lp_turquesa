@@ -1,0 +1,521 @@
+/* ================================================
+   HERO REPASSE - Estilos Mobile
+   Correções para experiência mobile
+   ================================================ */
+
+/* === MOBILE: Até 599px === */
+@media (max-width: 599px) {
+  /* Hero */
+  .hero-repasse {
+    min-height: auto;
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+  
+  .hero-repasse__badge {
+    margin-bottom: 16px;
+    padding: 8px 16px;
+  }
+  
+  .hero-repasse__badge-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+  
+  .hero-repasse__headline-pre {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+  
+  .hero-repasse__headline-main {
+    font-size: 2.4rem;
+  }
+  
+  .hero-repasse__headline-accent {
+    font-size: 1.3rem;
+  }
+  
+  .hero-repasse__divider {
+    margin: 16px 0;
+  }
+  
+  .hero-repasse__description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  /* KPI Cards Mobile */
+  .hero-repasse__kpis {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .hero-repasse__kpi {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    min-height: auto;
+    border-radius: 12px;
+  }
+  
+  .hero-repasse__kpi-icon {
+    position: static;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .hero-repasse__kpi-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .hero-repasse__kpi-content {
+    padding-top: 0;
+    text-align: left;
+    gap: 2px;
+  }
+  
+  .hero-repasse__kpi-value {
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+  
+  .hero-repasse__kpi-label {
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+  
+  .hero-repasse__kpi-badge {
+    margin-top: 4px;
+    padding: 3px 8px;
+    font-size: 0.6rem;
+  }
+  
+  /* CTA Button */
+  .hero-repasse__cta-wrap {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .hero-repasse__btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+    font-size: 0.85rem;
+  }
+  
+  /* Gallery Mobile */
+  .hero-repasse__visual {
+    min-height: 300px;
+    margin-top: 24px;
+    padding: 0;
+  }
+  
+  .hero-repasse__gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 100%;
+    padding: 0 4px;
+  }
+  
+  .hero-repasse__main-image {
+    aspect-ratio: 16 / 10;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .hero-repasse__main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .hero-repasse__side-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .hero-repasse__side-image {
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .hero-repasse__side-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Floating Cards */
+  .hero-repasse__floating-cards {
+    display: none;
+  }
+  
+  /* Scroll Indicator */
+  .hero-repasse__scroll-indicator {
+    display: none;
+  }
+  
+  /* Form Section */
+  .contato__form-wrap {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+  
+  .form__group {
+    gap: 6px;
+  }
+  
+  .form__group label {
+    font-size: 0.75rem;
+  }
+  
+  .form__group input,
+  .form__group select {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .input-with-prefix {
+    flex-direction: row;
+  }
+  
+  .input-prefix {
+    padding: 0 12px;
+    font-size: 0.85rem;
+    min-width: 50px;
+    justify-content: center;
+  }
+  
+  .btn--form {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Contato Info */
+  .contato__repasse-title {
+    font-size: 1.1rem;
+  }
+  
+  .contato__repasse-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  
+  /* Sobre Section */
+  .sobre__content {
+    text-align: center;
+  }
+  
+  .sobre__text {
+    font-size: 0.95rem;
+  }
+  
+  /* Gestão Cards */
+  .gestao__card {
+    padding: 24px 20px;
+  }
+  
+  .gestao__card h3 {
+    font-size: 1rem;
+  }
+  
+  .gestao__card p {
+    font-size: 0.8rem;
+  }
+  
+  /* Números Cards */
+  .numeros__card {
+    padding: 28px 20px;
+  }
+  
+  .numeros__value {
+    font-size: 2.2rem;
+  }
+  
+  .numeros__label {
+    font-size: 0.75rem;
+  }
+  
+  /* Diferenciais */
+  .diferenciais__card {
+    padding: 24px 20px;
+  }
+  
+  /* Mercado */
+  .mercado__item {
+    padding: 24px 20px;
+  }
+  
+  .mercado__icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Depoimentos */
+  .depoimentos__card {
+    margin-bottom: 16px;
+  }
+  
+  .depoimentos__info {
+    padding: 12px 16px 16px;
+  }
+  
+  .depoimentos__name {
+    font-size: 0.9rem;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 40px 0 30px;
+  }
+  
+  .footer__inner {
+    gap: 30px;
+  }
+  
+  .footer__brand {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer__tagline {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+  
+  .footer__content {
+    gap: 24px;
+  }
+  
+  .footer__title {
+    font-size: 1.1rem;
+  }
+  
+  .footer__nav a {
+    font-size: 0.85rem;
+  }
+  
+  .footer__copy {
+    font-size: 0.75rem;
+  }
+}
+
+/* === MOBILE SMALL: Até 400px === */
+@media (max-width: 400px) {
+  .hero-repasse__headline-main {
+    font-size: 2rem;
+  }
+  
+  .hero-repasse__headline-accent {
+    font-size: 1.1rem;
+  }
+  
+  .hero-repasse__kpi-value {
+    font-size: 1rem;
+  }
+  
+  .hero-repasse__btn {
+    padding: 12px 20px;
+    font-size: 0.8rem;
+  }
+  
+  .contato__form-wrap {
+    padding: 20px 14px;
+  }
+}
+
+/* === TABLET: 600px - 991px === */
+@media (min-width: 600px) and (max-width: 991px) {
+  .hero-repasse {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 40px;
+  }
+  
+  .hero-repasse__visual {
+    min-height: 400px;
+    margin-top: 24px;
+  }
+  
+  .hero-repasse__kpis {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  
+  .hero-repasse__kpi {
+    padding: 16px 12px;
+    min-height: 120px;
+  }
+  
+  .hero-repasse__kpi-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .hero-repasse__kpi-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .hero-repasse__kpi-value {
+    font-size: 1rem;
+  }
+  
+  .hero-repasse__kpi-label {
+    font-size: 0.65rem;
+  }
+  
+  .hero-repasse__gallery {
+    max-width: 500px;
+  }
+  
+  .hero-repasse__main-image {
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+  }
+  
+  .hero-repasse__side-images {
+    gap: 14px;
+  }
+  
+  .hero-repasse__side-image {
+    border-radius: 14px;
+  }
+  
+  .contato__form-wrap {
+    padding: 32px 24px;
+  }
+  
+  .form__group input,
+  .form__group select {
+    padding: 14px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+/* === DESKTOP: 992px+ === */
+@media (min-width: 992px) {
+  .hero-repasse {
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+  
+  .hero-repasse__visual {
+    min-height: 540px;
+  }
+  
+  .hero-repasse__kpis {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  .hero-repasse__kpi {
+    padding: 20px 16px;
+    min-height: 130px;
+  }
+}
+
+/* === CORREÇÕES GERAIS MOBILE === */
+
+/* Formulário - Corrigir overflow */
+.contato__form-wrap {
+  overflow: visible;
+}
+
+/* Container - Padding mobile */
+@media (max-width: 599px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Imagens - Garantir que não vaze */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Garantir que conteúdo não vaze */
+.hero-repasse,
+.contato,
+.sobre,
+.gestao,
+.numeros,
+.diferenciais,
+.depoimentos,
+.footer {
+  overflow-x: hidden;
+}
+
+/* Smooth scroll para mobile */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Touch feedback */
+@media (hover: none) {
+  .hero-repasse__btn:active {
+    transform: scale(0.97);
+  }
+  
+  .hero-repasse__kpi:active {
+    transform: scale(0.98);
+  }
+  
+  .hero-repasse__main-image:active img,
+  .hero-repasse__side-image:active img {
+    transform: scale(1.05);
+  }
+}
+
+/* Gallery Mobile Melhorado */
+@media (max-width: 599px) {
+  .hero-repasse__gallery {
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  
+  .hero-repasse__main-image {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hero-repasse__side-image {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .hero-repasse__image-frame {
+    border-radius: 14px;
+  }
+}
+
+/* Safe area insets para iPhone */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .hero-repasse {
+    padding-top: calc(100px + env(safe-area-inset-top));
+  }
+  
+  .header {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .footer {
+    padding-bottom: calc(30px + env(safe-area-inset-bottom));
+  }
+}
