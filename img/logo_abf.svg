@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 202" role="img" aria-labelledby="title">
+  <title>Selo ABF</title>
+  <circle cx="72" cy="72" r="63" fill="#fff" stroke="#d8b29b" stroke-width="6"/>
+  <circle cx="72" cy="72" r="51" fill="none" stroke="#0d3f40" stroke-width="2"/>
+  <path fill="#0d3f40" d="M72 25c8 14 19 22 35 27-3 28-17 45-35 57C54 97 40 80 37 52c16-5 27-13 35-27Z"/>
+  <text x="72" y="78" fill="#fff" font-family="Arial,sans-serif" font-size="25" font-weight="700" text-anchor="middle">ABF</text>
+  <text x="72" y="105" fill="#0d3f40" font-family="Arial,sans-serif" font-size="8" font-weight="700" text-anchor="middle">FRANQUIAS</text>
+  <path fill="#d8b29b" d="m72 145 5 15 16 1-12 10 4 15-13-8-13 8 4-15-12-10 16-1Z"/>
+  <text x="72" y="198" fill="#fff" font-family="Arial,sans-serif" font-size="9" font-weight="700" text-anchor="middle">ASSOCIADA</text>
+</svg>
