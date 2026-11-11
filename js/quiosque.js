@@ -8,34 +8,10 @@
 
   /* ─── 1. CONCEPT IMAGE POOL ─────────────────────── */
   const CONCEPT_IMAGES = [
-    'img/conceito/HAIR.webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.30 (1).webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.30.webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.31.webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.32 (3).webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.34 (1).webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.35.webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.36 (1).webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.34.37.webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.38.57.webp',
-    'img/conceito/WhatsApp Image 2023-05-30 at 10.38.58.webp',
-    'img/conceito/WhatsApp Image 2023-06-02 at 10.34.54.webp',
-    'img/conceito/WhatsApp Image 2023-06-02 at 10.34.55.webp',
-    'img/conceito/WhatsApp Image 2023-06-02 at 10.34.58.webp',
-    'img/conceito/WhatsApp Image 2023-08-26 at 11.17.25 (1).webp',
-    'img/conceito/WhatsApp Image 2023-08-26 at 11.17.25.webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.30 (1).webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.30 (2).webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.30.webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.31 (1).webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.31 (2).webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.31.webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.32.webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53 (1).webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53 (2).webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53 (3).webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.53.webp',
-    'img/conceito/WhatsApp Image 2026-01-07 at 16.07.54.webp',
+    'img/quiosque/quiosque-1.jpg',
+    'img/quiosque/quiosque-2.jpg',
+    'img/quiosque/quiosque-3.jpg',
+    'img/quiosque/quiosque-4.jpg',
   ];
 
   /* ─── 2. UTILITIES ───────────────────────────────── */
@@ -72,13 +48,10 @@
   /* ─── 3. ASSIGN RANDOM IMAGES TO SECTIONS ────────── */
 
   const FOTOS_IMAGES = [
-    'img/fotos/Luxury_beauty_salon_photograph_2K_202607131231.webp',
-    'img/fotos/RETIRE_O_LED_2K_202606011224.webp',
-    'img/fotos/Transform_this_interior_render_into_202605291954.webp',
-    'img/fotos/Transform_this_interior_render_into_202606011225.webp',
-    'img/fotos/Transform_this_interior_render_into_202606011226.webp',
-    'img/fotos/Transform_this_interior_render_into_202606011322.webp',
-    'img/fotos/Transform_this_interior_render_into_202606011325.webp',
+    'img/quiosque/quiosque-1.jpg',
+    'img/quiosque/quiosque-2.jpg',
+    'img/quiosque/quiosque-3.jpg',
+    'img/quiosque/quiosque-4.jpg',
   ];
 
   function initImages() {
@@ -114,6 +87,12 @@
 
         item.addEventListener('click', () => {
           openLightbox(src);
+        });
+        item.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openLightbox(src);
+          }
         });
 
         reveal(item, src);
@@ -609,6 +588,15 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     initImages();
+    const heroCard = document.querySelector('.hero__image-card');
+    if (heroCard && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let heroIndex = 0;
+      window.setInterval(() => {
+        if (document.hidden) return;
+        heroIndex = (heroIndex + 1) % FOTOS_IMAGES.length;
+        setBg(heroCard, FOTOS_IMAGES[heroIndex]);
+      }, 5000);
+    }
     initHeader();
     initMobileMenu();
     initScrollReveal();

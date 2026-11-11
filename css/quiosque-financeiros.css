@@ -1,0 +1,10 @@
+/* Ajuste para manter o indicador financeiro inteiro dentro do card. */
+.financeiros__card {
+  overflow: visible;
+}
+
+.financeiros__value {
+  font-size: clamp(2rem, 4vw, 3rem);
+  padding: 0 8px;
+  white-space: nowrap;
+}
