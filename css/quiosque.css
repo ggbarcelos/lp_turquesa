@@ -1,12 +1,17 @@
 /* Imagens específicas do quiosque; os componentes seguem os estilos da index. */
-/* Mantém o quadro e os selos da página principal, sem cortar a foto. */
+/* O quadro segue a proporção da foto, mantendo os selos do hero da index. */
+.hero .hero__visual {
+  min-height: 0 !important;
+  height: auto !important;
+  aspect-ratio: 1028 / 672;
+}
 .hero .hero__visual .hero__image-card {
   position: absolute;
   inset: 0;
   height: auto;
   background-color: var(--green-dark);
   background-image: url("../img/quiosque/quiosque-1.jpg");
-  background-size: contain;
+  background-size: 100% 100%;
   background-position: center;
 }
 
