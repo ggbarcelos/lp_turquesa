@@ -10,18 +10,22 @@
   inset: 0;
   height: auto;
   background-color: var(--green-dark);
-  background-image: url("../img/quiosque/hero-iluminado.jpg");
+  background-image: url("../img/quiosque/hero-iluminado.jpg?v=2");
   background-size: contain;
   background-position: center;
 }
 
-/* As fotos da segunda dobra são quadradas, como o quadro. */
+/* A foto da segunda dobra é quadrada, como o quadro. */
 .sobre .sobre__image {
   height: auto;
   aspect-ratio: 1;
   background-color: var(--green-pale);
   background-size: contain;
   background-repeat: no-repeat;
+}
+.contato .contato__bg-img {
+  object-fit: contain;
+  transform: none;
 }
 @media (prefers-reduced-motion: reduce) { .hero__bg, .hero__tag { animation: none; } }
 
