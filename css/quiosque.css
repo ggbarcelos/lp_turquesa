@@ -15,12 +15,7 @@
   background-size: contain;
   background-position: center;
 }
-.sobre .galeria { margin-top: clamp(72px, 10vw, 120px); }
-.sobre .galeria .galeria__item { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) { .hero__bg, .hero__tag { animation: none; } }
-
-/* A galeria encerra a seção sem deixar aparecer o fundo claro. */
-.sobre { padding-bottom: 0; }
 
 /* Quatro formatos em uma grade equilibrada, com Nails em destaque. */
 .modelos__grid {
