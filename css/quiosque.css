@@ -3,20 +3,22 @@
 .hero .hero__visual {
   min-height: 0 !important;
   height: auto !important;
-  aspect-ratio: 1028 / 672;
+  aspect-ratio: 1;
 }
 .hero .hero__visual .hero__image-card {
   position: absolute;
   inset: 0;
   height: auto;
   background-color: var(--green-dark);
-  background-image: url("../img/quiosque/quiosque-1.jpg");
-  background-size: 100% 100%;
+  background-image: url("../img/quiosque/hero-iluminado.jpg");
+  background-size: contain;
   background-position: center;
 }
 
-/* As fotos sorteadas têm proporções ligeiramente diferentes. */
+/* As fotos da segunda dobra são quadradas, como o quadro. */
 .sobre .sobre__image {
+  height: auto;
+  aspect-ratio: 1;
   background-color: var(--green-pale);
   background-size: contain;
   background-repeat: no-repeat;

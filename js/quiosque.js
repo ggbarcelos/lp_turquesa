@@ -69,7 +69,11 @@
     };
 
     // Sobre section image
-    reveal(document.getElementById('sobreImg'), pool[idx++]);
+    const sobreImages = [
+      'img/quiosque/quiosque-iluminado.jpg',
+      'img/quiosque/quiosque-aereo.jpg',
+    ];
+    reveal(document.getElementById('sobreImg'), shuffle(sobreImages)[0]);
 
     // Mercado background
     reveal(document.getElementById('mercadoBg'), pool[idx++]);
