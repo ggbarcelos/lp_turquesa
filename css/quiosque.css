@@ -1,11 +1,5 @@
 /* Imagens específicas do quiosque; os componentes seguem os estilos da index. */
-/* As quatro imagens têm proporções próximas de 3:2; manter o quadro
-   horizontal evita cortes e deixa toda a imagem visível em qualquer tela. */
-.hero .hero__visual {
-  min-height: 0;
-  height: auto;
-  aspect-ratio: 3 / 2;
-}
+/* Mantém o quadro e os selos da página principal, sem cortar a foto. */
 .hero .hero__visual .hero__image-card {
   position: absolute;
   inset: 0;
@@ -14,6 +8,13 @@
   background-image: url("../img/quiosque/quiosque-1.jpg");
   background-size: contain;
   background-position: center;
+}
+
+/* As fotos sorteadas têm proporções ligeiramente diferentes. */
+.sobre .sobre__image {
+  background-color: var(--green-pale);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 @media (prefers-reduced-motion: reduce) { .hero__bg, .hero__tag { animation: none; } }
 
