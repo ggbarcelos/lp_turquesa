@@ -1165,7 +1165,6 @@ button {
   text-align: center;
   transition: all var(--transition);
   position: relative;
-  overflow: hidden;
   backdrop-filter: blur(8px);
 }
 
@@ -1229,12 +1228,13 @@ button {
 .financeiros__value {
   display: block;
   font-family: var(--font-sans);
-  font-size: clamp(2.75rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 900;
   color: var(--white);
   line-height: 1;
   margin-bottom: 14px;
   letter-spacing: -0.02em;
+  padding: 0 8px;
   white-space: nowrap;
 }
 
