@@ -54,6 +54,12 @@
     'img/quiosque/quiosque-4.jpg',
   ];
 
+  const HERO_IMAGES = [
+    'img/quiosque/hero-iluminado.jpg?v=2',
+    'img/quiosque/quiosque-iluminado.jpg?v=2',
+    'img/quiosque/quiosque-aereo.jpg?v=2',
+  ];
+
   function initImages() {
     const pool = shuffle(CONCEPT_IMAGES);
     let idx = 0;
@@ -69,7 +75,7 @@
     };
 
     // Sobre section image
-    reveal(document.getElementById('sobreImg'), pool[idx++]);
+    reveal(document.getElementById('sobreImg'), 'img/quiosque/quiosque-iluminado.jpg?v=2');
 
     // Mercado background
     reveal(document.getElementById('mercadoBg'), pool[idx++]);
@@ -593,8 +599,8 @@
       let heroIndex = 0;
       window.setInterval(() => {
         if (document.hidden) return;
-        heroIndex = (heroIndex + 1) % FOTOS_IMAGES.length;
-        setBg(heroCard, FOTOS_IMAGES[heroIndex]);
+        heroIndex = (heroIndex + 1) % HERO_IMAGES.length;
+        setBg(heroCard, HERO_IMAGES[heroIndex]);
       }, 5000);
     }
     initHeader();
