@@ -263,7 +263,9 @@
   const RULES = {
     nome:     v => v.trim().length >= 3             || 'Por favor, informe seu nome completo.',
     email:    v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Informe um e-mail válido.',
-    telefone: v => normalizePhone(v).length >= 10 || 'Informe um telefone com DDD.',
+    telefone: v => /^\d{10,11}$/.test(normalizePhone(v)) || 'Informe um telefone com DDD.',
+    cidade:   v => v.trim().length >= 2 || 'Informe a cidade de interesse.',
+    investimento: v => ['150 a 200 mil', '200 a 300 mil', '300 a 400 mil'].includes(v) || 'Selecione a faixa de investimento.',
     unidade:       v => v.trim().length >= 2             || 'Informe a unidade de interesse.',
   };
 
@@ -284,16 +286,27 @@
     errEl.classList.remove('visible');
   }
 
+  let emailJsReady;
+
   function loadEmailJs() {
-    return new Promise((resolve, reject) => {
-      if (typeof emailjs !== 'undefined') { resolve(); return; }
+    if (emailJsReady) return emailJsReady;
+    emailJsReady = new Promise((resolve, reject) => {
+      const initialize = () => {
+        emailjs.init({ publicKey: 'xAtMa5JUwZUvcGnXw' });
+        resolve();
+      };
+      if (typeof emailjs !== 'undefined') { initialize(); return; }
       const s = document.createElement('script');
       s.src = 'js/email.min.js';
       s.async = true;
-      s.onload = () => { emailjs.init({ publicKey: 'xAtMa5JUwZUvcGnXw' }); resolve(); };
+      s.onload = initialize;
       s.onerror = reject;
       document.head.appendChild(s);
+    }).catch(error => {
+      emailJsReady = null;
+      throw error;
     });
+    return emailJsReady;
   }
 
   function initForm() {
@@ -307,6 +320,8 @@
       nome:          'Por favor, informe seu nome completo.',
       email:         'Informe um e-mail válido.',
       telefone:      'Informe um telefone com DDD.',
+      cidade:        'Informe a cidade de interesse.',
+      investimento:  'Selecione a faixa de investimento.',
       unidade:       'Informe a unidade de interesse.',
     };
 
@@ -332,6 +347,7 @@
 
     form.addEventListener('submit', async e => {
       e.preventDefault();
+      if (form.querySelector('[type="submit"]').disabled) return;
 
       // ── Validate all fields ──
       let isValid = true;
@@ -348,7 +364,7 @@
       });
 
       if (!isValid) {
-        const firstError = form.querySelector('input.error');
+        const firstError = form.querySelector('.error');
         if (firstError) firstError.focus();
         return;
       }
@@ -390,7 +406,9 @@
       const nome         = document.getElementById('nome').value.trim();
       const email        = document.getElementById('email').value.trim();
       const phone        = `+55 ${document.getElementById('telefone').value.trim()}`;
-      const unidade      = document.getElementById('unidade').value.trim();
+      const unidade      = document.getElementById('unidade')?.value.trim() || '';
+      const cidade       = document.getElementById('cidade')?.value.trim() || '';
+      const investimento = document.getElementById('investimento')?.value.trim() || '';
 
       const utms = getUtms();
       const utmPairs = [
@@ -407,8 +425,10 @@
         `Nome: ${nome}`,
         `E-mail: ${email}`,
         `Telefone: ${phone}`,
-        `Unidade: ${unidade}`,
       ];
+      if (unidade) lines.push(`Unidade: ${unidade}`);
+      if (cidade) lines.push(`Cidade de interesse: ${cidade}`);
+      if (investimento) lines.push(`Investimento disponível: ${investimento}`);
 
       if (utmPairs.length) {
         lines.push('', '--- Origem do tráfego ---');
@@ -457,7 +477,7 @@
         btn.disabled = false;
         btn.innerHTML = originalHTML;
         if (networkErr) networkErr.style.display = 'flex';
-        networkErr.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        networkErr?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     });
   }
