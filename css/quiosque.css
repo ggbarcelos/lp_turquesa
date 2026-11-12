@@ -1,11 +1,21 @@
 /* Imagens específicas do quiosque; os componentes seguem os estilos da index. */
-.hero .hero__visual .hero__image-card { background-image: url("../img/quiosque/quiosque-1.jpg"); }
-.sobre .galeria { margin-top: clamp(72px, 10vw, 120px); }
-.sobre .galeria .galeria__item { cursor: pointer; }
+/* As quatro imagens têm proporções próximas de 3:2; manter o quadro
+   horizontal evita cortes e deixa toda a imagem visível em qualquer tela. */
+.hero .hero__visual {
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 3 / 2;
+}
+.hero .hero__visual .hero__image-card {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  background-color: var(--green-dark);
+  background-image: url("../img/quiosque/quiosque-1.jpg");
+  background-size: contain;
+  background-position: center;
+}
 @media (prefers-reduced-motion: reduce) { .hero__bg, .hero__tag { animation: none; } }
-
-/* A galeria encerra a seção sem deixar aparecer o fundo claro. */
-.sobre { padding-bottom: 0; }
 
 /* Quatro formatos em uma grade equilibrada, com Nails em destaque. */
 .modelos__grid {
